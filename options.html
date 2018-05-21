@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+	<meta charset="utf-8">
+		<title>FA Blacklist Options</title>
+		<link rel="stylesheet" href="lib/styles/app.css">
+		<link rel="stylesheet" href="lib/styles/switch.css">
+	</head>
+	<body>
+		<div id="options" class="group">
+			<div>
+				<h2>Extension Options</h2>
+			</div>
+			<table>
+				<tr>
+					<td>Enable this extension<br>
+					(clicking the icon in the pop-up works too)</td>
+					<td><input type="checkbox" id="enabled"></td>
+				</tr>
+				<tr>
+					<td>Scan a webpage each time the tab is loaded</td>
+					<td><input type="checkbox" id="alwaysScan"></td>
+				</tr>
+				<tr>
+					<td>Automatically sort the contents of filters</td>
+					<td><input type="checkbox" id="autoSort"></td>
+				</tr>
+				<tr>
+					<td>Cleanup profile pages to remove extra content</td>
+					<td><input type="checkbox" id="firstItem"></td>
+				</tr>
+				<tr>
+					<td>Use browser notifications</td>
+					<td><input type="checkbox" id="notifications"></td>
+				</tr>
+			</table>
+			<div>
+				<button id="reset-options">Reset Options</button>
+				<button id="reset-app" class="red">Purge Data</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="lib/core/prototype.js"></script>
+		<script type="text/javascript" src="lib/core/prototype-extension.js"></script>
+		<script type="text/javascript" src="lib/browser/browser-polyfill.js"></script>
+		<script type="text/javascript" src="lib/browser/messenger.js"></script>
+		<script type="text/javascript" src="lib/page/switch.js"></script>
+		<script type="text/javascript" src="lib/options.js"></script>
+	</body>
+</html>

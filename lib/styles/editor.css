@@ -1,0 +1,19 @@
+#topnav {
+	position: fixed;
+	margin-top: -80px;
+	width: 376px;
+	background-color: #2e3b41;
+	z-index: 999;
+}
+#filter-info {
+	margin-top: 80px;
+}
+#import {
+	display: none;
+}
+#name {
+	width: 240px;
+}
+#filter-dropdown {
+	
+}

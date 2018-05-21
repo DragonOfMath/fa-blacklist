@@ -1,0 +1,69 @@
+{
+	"manifest_version": 2,
+	"name": "FurAffinity Blacklist",
+	"version": "2.0.0",
+	"author": "DragonOfMath",
+	"homepage_url": "https://github.com/DragonOfMath/fa-blacklist-webext",
+	"description": "Interface modules for filtering content across FurAffinity",
+	"default_locale": "en",
+	
+	"icons": {
+		"32": "static/fabl-32.png"
+	},
+	
+	"background": {
+		"scripts": [
+			"lib/core/prototype.js",
+			"lib/browser/browser-polyfill.js",
+			"lib/browser/messenger.js",
+			"lib/browser/storage.js",
+			"lib/browser/notify.js",
+			"lib/filter.js",
+			"lib/main.js"
+		]
+	},
+	
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.furaffinity.net/*"
+			],
+			"run_at": "document_end",
+			"js": [
+				"lib/core/prototype.js",
+				"lib/core/prototype-extension.js",
+				"lib/browser/browser-polyfill.js",
+				"lib/browser/messenger.js",
+				"lib/page/drag-handler.js",
+				"lib/filter.js",
+				"lib/page.js"
+			],
+			"css": [
+				"lib/styles/tag.css",
+				"lib/styles/page.css"
+			]
+		}
+	],
+	 
+	"browser_action": {
+		"browser_style": false,
+		"default_icon":  "static/fabl-32.png",
+		"default_title": "FA Blacklist",
+		"default_popup": "popup.html"
+	},
+	
+	"options_ui": {
+		"page": "options.html",
+		"browser_style": false
+	},
+	
+	"permissions": [
+		"<all_urls>",
+		"contextMenus",
+		"notifications",
+		"storage", "unlimitedStorage",
+		"tabs"
+	],
+	
+	"content_security_policy": "default-src 'self'; script-src 'self'; object-src 'self'; img-src 'self'"
+}

@@ -1,0 +1,128 @@
+/* page.css */
+#app {
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+}
+#app h3 {
+	margin: 5px;
+}
+#app button, #app select, #app input {
+	font-family: inherit;
+	border: none;
+	height: 24px;
+}
+#app button {
+	/* border-radius: 10px; */
+	margin: 0px 1px 4px 0px;
+	cursor: pointer;
+}
+#app input[type=textbox], #app select {
+	color: #868770;
+	background-color: #303235;
+	padding: 4px;
+}
+#app select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-image: url('/static/Arrow-drop-down-01.svg');
+	background-repeat: no-repeat;
+	background-position: right;
+	background-size: auto;
+	min-width: 24px;
+	width: 100%;
+}
+#app td {
+	vertical-align: top;
+}
+#app td.name-column {
+	width: 150px;
+}
+#app td.tags-column {
+	width: 150px;
+}
+#app td.opts-column {
+	
+}
+#app table {
+	border-spacing: 2px;
+}
+
+#app #app-show-window {
+	position: fixed;
+	left: 10px;
+	top: 40px;
+	opacity: 0.5;
+}
+#app #app-show-window:hover {
+	opacity: 1;
+}
+#app #app-hide-window {
+	float: right;
+	border: none;
+	margin: 1px;
+}
+#app #app-window {
+	position: fixed;
+	background-color: #2e3b41;
+	color: #cfcfcf;
+	z-index: 999;
+	width: 320px;
+	margin: auto;
+	opacity: 0.5;
+	box-shadow: 1px 1px 1px 1px black;
+	transition: opacity 200ms ease;
+}
+#app #app-window:hover {
+	opacity: 1;
+	box-shadow: 2px 2px 2px 2px black;
+}
+#app #app-header {
+	background-color: #202224;
+	cursor: pointer;
+	/* height: 20px; */
+}
+#app #app-title {
+	display: inline-block;
+	margin: 2px 4px;
+}
+#app #app-body {
+	
+}
+#app #searchbar {
+	width: 312px;
+	overflow: hidden;
+}
+
+.group {
+	padding: 4px;
+	border: 2px inset #2e3b41;
+}
+.fixed-height {
+	max-height: 200px;
+	overflow-y: auto;
+}
+.add-tag {
+	float: right;
+	background-color: transparent;
+	font-weight: bold;
+	color: black;
+}
+.red:hover {
+	background-color: red;
+	border-color: red;
+	color: white;
+}
+.green:hover {
+	background-color: #2a2;
+	border-color: #262;
+	color: white;
+}
+.blue:hover {
+	background-color: blue;
+	border-color: blue;
+	color: white;
+}
+.hidden {
+	display: none;
+}

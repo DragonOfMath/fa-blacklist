@@ -1,0 +1,20 @@
+TODO:
+add i18n locale support
+add context menus to webpages that add webextension functionality (OPTIONAL?)
+	1) when clicking on a user node, options include:
+		* add to filter
+		* remove from filter
+		* remove from all filters
+	2) when clicking on a submission node, options include:
+		* add to filter
+		* remove from filter
+		* remove from all filters
+	3) when clicking on a filter tag, options include:
+		* add all users on this page
+		* add all submissions on this page
+		* remove all users on this page
+		* remove all submissions on this page
+		* enable/disable
+
+obtain an AMO signature
+publish extension

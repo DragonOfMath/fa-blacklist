@@ -1,0 +1,42 @@
+.tag {
+	display: inline-block;
+	border-radius: 6px;
+	border-width: 2px;
+	border-style: outset;
+	margin: 1px;
+	padding: 2px;
+	cursor: pointer;
+}
+.tag .text {
+	font-size: 7.5pt;
+	color: white;
+	margin: 0;
+	padding: 2px;
+	/* filter: invert(100%);
+	-o-filter: invert(100%);
+	-webkit-filter: invert(100%); */
+}
+.tag.auto .text::after {
+	content: '🔎';
+}
+.tag .remove {
+	border: none;
+	font-size: 9pt;
+	border-radius: 8px;
+	background-color: transparent;
+	color: #333;
+	margin: 2px 0px 2px 4px;
+	padding: 0;
+	width: 16px !important;
+	height: 16px !important;
+	cursor: pointer;
+}
+.tag .remove:hover {
+	background-color: red;
+	color: white;
+}
+.tag.disabled {
+	background-color: grey !important;
+	border-color: grey !important;
+	color: white !important;
+}
