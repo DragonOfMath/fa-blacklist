@@ -53,4 +53,4 @@ You can see the newest addition to the interface by hovering over any user or su
 Context menus have been put on wait due to the lack of cross-browser support for both `<menu>` and `browser.contextMenus`.
 
 # Feedback
-Please send me your suggestions and bugs to the repo's [url=https://github.com/DragonOfMath/fa-blacklist-webext/issues/new]issue inbox[/url]. If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.
+Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist-webext/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.
