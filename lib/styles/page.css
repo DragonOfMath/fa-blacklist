@@ -4,17 +4,13 @@
 	font-size: 8pt;
 }
 #app h3 {
+	display: inline-block;
 	margin: 5px;
 }
 #app button, #app select, #app input {
 	font-family: inherit;
 	border: none;
 	height: 24px;
-}
-#app button {
-	/* border-radius: 10px; */
-	margin: 0px 1px 4px 0px;
-	cursor: pointer;
 }
 #app input[type=textbox], #app select {
 	color: #868770;
@@ -25,27 +21,28 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
+	/*
 	background-image: url('/static/Arrow-drop-down-01.svg');
 	background-repeat: no-repeat;
 	background-position: right;
 	background-size: auto;
+	*/
+	background-color: inherit !important;
 	min-width: 24px;
-	width: 100%;
+	width: auto;
+	margin: 2px;
+	cursor: pointer;
 }
-#app td {
+
+#app .row {
 	vertical-align: top;
+	margin: 2px 0px 2px 0px;
 }
-#app td.name-column {
-	width: 150px;
+#app .row:hover {
+	background-color: #404a52;
 }
-#app td.tags-column {
-	width: 150px;
-}
-#app td.opts-column {
-	
-}
-#app table {
-	border-spacing: 2px;
+#app .name {
+	margin: 2px 10px 2px 2px;
 }
 
 #app #app-show-window {
@@ -67,7 +64,7 @@
 	background-color: #2e3b41;
 	color: #cfcfcf;
 	z-index: 999;
-	width: 320px;
+	width: 400px;
 	margin: auto;
 	opacity: 0.5;
 	box-shadow: 1px 1px 1px 1px black;
@@ -90,7 +87,7 @@
 	
 }
 #app #searchbar {
-	width: 312px;
+	width: 392px;
 	overflow: hidden;
 }
 

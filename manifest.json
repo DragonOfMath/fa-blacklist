@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "FurAffinity Blacklist",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"author": "DragonOfMath",
 	"homepage_url": "https://github.com/DragonOfMath/fa-blacklist-webext",
 	"description": "Interface modules for filtering content across FurAffinity",
