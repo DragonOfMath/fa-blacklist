@@ -1,50 +1,11 @@
 /* page.css */
-#app {
-	font-family: Verdana, sans-serif;
-	font-size: 8pt;
-}
-#app h3 {
-	display: inline-block;
-	margin: 5px;
-}
-#app button, #app select, #app input {
-	font-family: inherit;
-	border: none;
-	height: 24px;
-}
-#app input[type=textbox], #app select {
-	color: #868770;
-	background-color: #303235;
-	padding: 4px;
-}
-#app select {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	appearance: none;
-	/*
-	background-image: url('/static/Arrow-drop-down-01.svg');
-	background-repeat: no-repeat;
-	background-position: right;
-	background-size: auto;
-	*/
-	background-color: inherit !important;
-	min-width: 24px;
-	width: auto;
-	margin: 2px;
-	cursor: pointer;
-}
-
-#app .row {
-	vertical-align: top;
-	margin: 2px 0px 2px 0px;
-}
-#app .row:hover {
-	background-color: #404a52;
-}
-#app .name {
+#app a {
 	margin: 2px 10px 2px 2px;
 }
-
+#app select {
+	background-image: none;
+	width: auto;
+}
 #app #app-show-window {
 	position: fixed;
 	left: 10px;
@@ -55,9 +16,9 @@
 	opacity: 1;
 }
 #app #app-hide-window {
+	font-size: 12pt;
 	float: right;
-	border: none;
-	margin: 1px;
+	margin: 0;
 }
 #app #app-window {
 	position: fixed;
@@ -74,52 +35,12 @@
 	opacity: 1;
 	box-shadow: 2px 2px 2px 2px black;
 }
-#app #app-header {
-	background-color: #202224;
-	cursor: pointer;
-	/* height: 20px; */
-}
 #app #app-title {
 	display: inline-block;
-	margin: 2px 4px;
 }
-#app #app-body {
-	
+#app .row {
+	vertical-align: top;
 }
-#app #searchbar {
-	width: 392px;
-	overflow: hidden;
-}
-
-.group {
-	padding: 4px;
-	border: 2px inset #2e3b41;
-}
-.fixed-height {
-	max-height: 200px;
-	overflow-y: auto;
-}
-.add-tag {
-	float: right;
-	background-color: transparent;
-	font-weight: bold;
-	color: black;
-}
-.red:hover {
-	background-color: red;
-	border-color: red;
-	color: white;
-}
-.green:hover {
-	background-color: #2a2;
-	border-color: #262;
-	color: white;
-}
-.blue:hover {
-	background-color: blue;
-	border-color: blue;
-	color: white;
-}
-.hidden {
-	display: none;
+#app .add-tag {
+	width: 20px;
 }

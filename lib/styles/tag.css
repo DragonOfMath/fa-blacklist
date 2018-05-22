@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 .tag {
 	display: inline-block;
 	border-radius: 6px;
@@ -7,16 +9,20 @@
 	padding: 2px;
 	cursor: pointer;
 }
+.tag.disabled {
+	background-color: grey !important;
+	border-color: grey !important;
+	color: white !important;
+}
 .tag .text {
 	font-size: 7.5pt;
-	color: white;
 	margin: 0;
 	padding: 2px;
 	/* filter: invert(100%);
 	-o-filter: invert(100%);
 	-webkit-filter: invert(100%); */
 }
-.tag.auto .text::after {
+.tag.auto:not(.disabled) .text::after {
 	content: '🔎';
 }
 .tag .remove {
@@ -32,11 +38,7 @@
 	cursor: pointer;
 }
 .tag .remove:hover {
-	background-color: red;
-	color: white;
-}
-.tag.disabled {
-	background-color: grey !important;
-	border-color: grey !important;
+	background-color: red !important;
+	border-color: red !important;
 	color: white !important;
 }

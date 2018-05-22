@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="lib/styles/switch.css" />
 		<link rel="stylesheet" href="lib/styles/editor.css" />
 	</head>
-	<body>
+	<body id="app">
 		<div id="editor">
 			<div class="group buttons" id="topnav">
 				<center>
@@ -17,27 +17,27 @@
 					<button id="copy-filter" class="control" title="Save a copy of the current filter">Save As Copy</button>
 					<button id="load-filter" class="control" title="Load an existing filter">Load</button>
 					<button id="delete-filter" class="control" title="Delete the current filter">Delete</button><br>
-					<button id="export-filter" class="control" title="Export this filter to desktop">📥 Export...</button>
-					<button id="import-filter" class="control" title="Import a filter from desktop">📤 Import...</button>
-					<input id="import" type="file">
+					<button id="export-filter" class="control" title="Export this filter to desktop">📥 Export</button>
+					<button id="import-filter" class="control" title="Import a filter from desktop">📤 Import</button>
+					<input id="import" type="file" class="hidden">
 				</center>
 				<div id="loadout" class="hidden">
-					<p>Select a from the dropdown:</p>
+					<p>Select a filter from the dropdown:</p>
 					<select id="filter-dropdown" value=""></select>
 				</div>
 			</div>
 			<div id="filter-info" class="group">
 				<h1>Filter Editor</h1>
 				<table>
-					<tr title="Filter ID">
+					<tr class="row" title="Filter ID">
 						<td>ID:</td>
 						<td><code id="id"></code></td>
 					</tr>
-					<tr title="Filter name">
+					<tr class="row" title="Filter name">
 						<td>Name:</td>
 						<td><input type="textbox" id="name" placeholder="untitled"></td>
 					</tr>
-					<tr title="Filter type">
+					<tr class="row" title="Filter type">
 						<td>Type:</td>
 						<td>
 							<select id="type" value="0">
@@ -46,61 +46,67 @@
 							</select>
 						</td>
 					</tr>
-					<tr title="Filter color">
+					<tr class="row" title="Filter color">
 						<td>Color:</td>
-						<td><input type="color" id="color" value="#ff0000" title="Pick a color"><button id="random-color">Random</button></td>
+						<td><input type="color" id="color" value="#ff0000" title="Pick a background color"><button id="random-color">Random</button></td>
 					</tr>
-					<tr title="Enable this filter">
+					<tr class="row" title="Filter text color">
+						<td>Text Color:</td>
+						<td><input type="color" id="color-text" value="#ffffff" title="Pick a text color"><button id="random-text-color">Random</button></td>
+					</tr>
+					<tr class="row" title="Enable this filter">
 						<td>Enabled:</td>
 						<td><input type="checkbox" id="enabled" checked=""></td>
 					</tr>
+					<tr class="row" title="Live tag preview">
+						<td>Appearance:</td>
+						<td><span id="tag-preview" class="tag"><span class="text"></span><button class="remove">x</button></span></td>
+					</tr>
 				</table>
-				<h3>Preview</h3>
-				<div>
-					<span id="tag-preview" class="tag"><span class="text"></span><button class="remove">x</button></span>
-				</div>
 			</div>
 			
 			<div id="filter-contents" class="group">
 				<div id="filter-contents-users">
 					<h2>Users</h2>
+					<p>Artists, art collectors, and everyone else have their names listed here.</p>
 					<div class="buttons">
 						<button id="clean-sort-users">Clean and Sort</button>
 						<button id="get-watchlist">Import Watchlist</button>
 					</div>
-					<textarea id="users" placeholder="List of usernames, one per line..."></textarea>
+					<textarea id="users"></textarea>
 					<p class="small grey">Length: <span id="content-length-users">0</span></p>
 				</div>
 				
 				<div id="filter-contents-submissions">
 					<h2>Submissions</h2>
+					<p>Each submission is identified by an ID number.</p>
 					<div class="buttons">
 						<button id="clean-sort-submissions">Clean and Sort</button>
 						<button id="get-submissions">Import Gallery</button>
 						<button id="get-favorites">Import Favorites</button>
 					</div>
-					<textarea id="submissions" placeholder="List of submission IDs, one per line..."></textarea>
+					<textarea id="submissions"></textarea>
 					<p class="small grey">Length: <span id="content-length-submissions">0</span></p>
 				</div>
 				
 				<div id="filter-contents-keywords">
 					<h2>Keywords</h2>
-					<p>Keywords can help identify content on a document that can be filtered out.</p>
+					<p>These can help identify content on a document that can be filtered out.</p>
 					<table>
-						<tr title="Scan submission titles">
+						<tr class="row" title="Scan submission titles">
 							<td>Scan submission titles for keywords:</td>
 							<td><input type="checkbox" id="matchTitle"></td>
 						</tr>
-						<tr title="Scan usernames">
+						<tr class="row" title="Scan usernames">
 							<td>Scan usernames for keywords:</td>
 							<td><input type="checkbox" id="matchName"></td>
 						</tr>
-						<tr title="Filter a user instead">
+						<tr class="row" title="Filter a user instead">
 							<td>If a submission is matched, prefer filtering its creator instead:</td>
 							<td><input type="checkbox" id="sensitive"></td>
 						</tr>
 					</table>
-					<textarea id="keywords" placeholder="Keywords for this filter, one per line..."></textarea>
+					<textarea id="keywords"></textarea>
 					<div>Keywords support <b><a class="small" href="https://regex101.com" target="_blank">regular expression syntax</a></b>.</div>
 				</div>
 			</div>
@@ -109,27 +115,27 @@
 				<h2>Blacklist Options</h2>
 				<p>Hide the following types of elements when users/submissions are blacklisted:</p>
 				<table>
-					<tr title="This hides the profile pictures of users">
+					<tr class="row" title="This hides the profile pictures of users">
 						<td>Avatars:</td>
 						<td><input type="checkbox" id="avatar" checked=""></td>
 					</tr>
-					<tr title="This hides instances of the user's name">
+					<tr class="row" title="This hides instances of the user's name">
 						<td>Username/Links:</td>
 						<td><input type="checkbox" id="username" checked=""></td>
 					</tr>
-					<tr title="This hides comments and shouts made by the user">
+					<tr class="row" title="This hides comments and shouts made by the user">
 						<td>Comments/Shouts:</td>
 						<td><input type="checkbox" id="comment" checked=""></td>
 					</tr>
-					<tr title="This hides submission thumbnails, images, flashes, etc.">
+					<tr class="row" title="This hides submission thumbnails, images, flashes, etc.">
 						<td>Thumbnails:</td>
 						<td><input type="checkbox" id="thumbnail" checked=""></td>
 					</tr>
-					<tr title="This hides submission titles, if they are found">
+					<tr class="row" title="This hides submission titles, if they are found">
 						<td>Titles:</td>
 						<td><input type="checkbox" id="title" checked=""></td>
 					</tr>
-					<tr title="This hides any other kind of link that goes to a submission">
+					<tr class="row" title="This hides any other kind of link that goes to a submission">
 						<td>Other Links:</td>
 						<td><input type="checkbox" id="link" checked=""></td>
 					</tr>
