@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "FurAffinity Blacklist",
-	"version": "2.0.3",
+	"version": "2.1.0",
 	"author": "DragonOfMath",
 	"homepage_url": "https://github.com/DragonOfMath/fa-blacklist-webext",
 	"description": "Interface modules for filtering content across FurAffinity",
@@ -18,7 +18,7 @@
 			"lib/browser/messenger.js",
 			"lib/browser/storage.js",
 			"lib/browser/notify.js",
-			"lib/filter.js",
+			"lib/fa/filter.js",
 			"lib/main.js"
 		]
 	},
@@ -30,17 +30,22 @@
 			],
 			"run_at": "document_end",
 			"js": [
-				"lib/core/prototype.js",
+				"lib/core/prototype.min.js",
 				"lib/core/prototype-extension.js",
 				"lib/browser/browser-polyfill.js",
 				"lib/browser/messenger.js",
 				"lib/page/drag-handler.js",
-				"lib/filter.js",
+				"lib/fa/filter.js",
+				"lib/fa/target-base.js",
+				"lib/fa/target-extension.js",
+				"lib/fa/scraper.js",
+				"lib/list.js",
 				"lib/page.js"
 			],
 			"css": [
 				"lib/styles/app.css",
 				"lib/styles/tag.css",
+				"lib/styles/list.css",
 				"lib/styles/page.css"
 			]
 		}

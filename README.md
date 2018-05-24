@@ -12,6 +12,7 @@ The single-pane draggable interface of the userscript has been split between sev
 * The filter editor
 * The options page
 * Modifications to FurAffinity webpages
+* The master list page
 
 ### Browser Pop-up
 The pop-up is part of the browser window, not the webpage, so it can be opened anywhere and anytime. The main purpose of the pop-up is to provide an entry point for the hidden other interfaces, such as the Editor and Options page, as well as display a clean list of your filters. All its functions include:
@@ -50,7 +51,11 @@ When viewing webpages on FurAffinity, you'll notice a button in the top-left tha
 
 You can see the newest addition to the interface by hovering over any user or submission on the page for a couple seconds. The window will update and narrow its list down to only the stuff relevant to what you hovered over. Pretty neat, huh?
 
-Context menus have been put on wait due to the lack of cross-browser support for both `<menu>` and `browser.contextMenus`.
+### Master List
+As of 2.0.4, the Master List is a special page that lists all the users and submissions that are currently in filters. You have the advantage of editing tags off-site in the same fashion as on it.
+
+# To-Do
+I keep a to-do list of objectives that aren't required for the extension to work, but do add functionality that makes life easier. You can view the TODO.txt file to see what I have planned.
 
 # Feedback
 Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist-webext/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.

@@ -1,20 +1,23 @@
 TODO:
-add i18n locale support
-add context menus to webpages that add webextension functionality (OPTIONAL?)
-	1) when clicking on a user node, options include:
+* hide the first submission and favorite elements more permanently
+* use a dummy element to replace hidden element nodes so they may be hovered over without resorting to checking parent elements for viability
+* add more global settings (like what?)
+* add i18n locale support (requesting translators)
+* add context menus to webpages that add webextension functionality (Context menus have been put on wait due to the lack of cross-browser support for both `<menu>` and `browser.contextMenus`)
+	* when clicking on a user node, options include:
 		* add to filter
 		* remove from filter
 		* remove from all filters
-	2) when clicking on a submission node, options include:
+	* when clicking on a submission node, options include:
 		* add to filter
 		* remove from filter
 		* remove from all filters
-	3) when clicking on a filter tag, options include:
+	* when clicking on a filter tag, options include:
 		* add all users on this page
 		* add all submissions on this page
 		* remove all users on this page
 		* remove all submissions on this page
 		* enable/disable
 
-obtain an AMO signature
-publish extension
+IMPORTANT:
+* obtain an AMO signature and publish extension

@@ -1,0 +1,17 @@
+/* list.css */
+#app a {
+	margin: 2px 10px 2px 2px;
+}
+#app select {
+	background-image: none;
+	width: auto;
+}
+#app .row {
+	vertical-align: top;
+}
+#app .add-tag {
+	width: 20px;
+}
+#app #users, #app #submissions {
+	overflow: auto;
+}
