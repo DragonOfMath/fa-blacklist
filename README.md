@@ -52,7 +52,7 @@ When viewing webpages on FurAffinity, you'll notice a button in the top-left tha
 You can see the newest addition to the interface by hovering over any user or submission on the page for a couple seconds. The window will update and narrow its list down to only the stuff relevant to what you hovered over. Pretty neat, huh?
 
 ### Master List
-As of 2.0.4, the Master List is a special page that lists all the users and submissions that are currently in filters. You have the advantage of editing tags off-site in the same fashion as on it.
+As of 2.1.0, the Master List is a special page that lists all the users and submissions that are currently in filters. You have the advantage of editing tags off-site in the same fashion as on it. However, the initial loadout can be a heavy process.
 
 # To-Do
 I keep a to-do list of objectives that aren't required for the extension to work, but do add functionality that makes life easier. You can view the TODO.txt file to see what I have planned.
