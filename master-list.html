@@ -8,29 +8,30 @@
 		<link rel="stylesheet" href="lib/styles/list.css" />
 	</head>
 	<body id="app">
-		<h1>Master List</h1>
+		<h1 data-i18n="listTitle"></h1>
 		<div id="list">
 			<div id="search">
-				<input type="textbox" id="searchbar" placeholder="Search...">
+				<input type="textbox" id="searchbar" data-i18n="searchPlaceholder,placeholder">
 			</div>
 			<div id="users-global">
-				<h3>Users</h3>
+				<h3 data-i18n="users"></h3>
 				<select id="users-add-all"></select>
 				<select id="users-remove-all"></select>
 			</div>
-			<div id="users" class="group fixed-height">
+			<div id="users" class="group">
 			</div>
 			<div id="submissions-global">
-				<h3>Submissions</h3>
+				<h3 data-i18n="submissions"></h3>
 				<select id="submissions-add-all"></select>
 				<select id="submissions-remove-all"></select>
 			</div>
-			<div id="submissions" class="group fixed-height">
+			<div id="submissions" class="group">
 			</div>
 		</div>
 		<script type="text/javascript" src="lib/core/prototype.js"></script>
 		<script type="text/javascript" src="lib/core/prototype-extension.js"></script>
 		<script type="text/javascript" src="lib/browser/browser-polyfill.js"></script>
+		<script type="text/javascript" src="lib/browser/i18n.js"></script>
 		<script type="text/javascript" src="lib/browser/messenger.js"></script>
 		<script type="text/javascript" src="lib/fa/filter.js"></script>
 		<script type="text/javascript" src="lib/fa/target-base.js"></script>

@@ -98,6 +98,7 @@
 #app a {
 	text-decoration: none;
 	color: inherit;
+	font-weight: bold;
 }
 #app a:hover {
 	text-decoration: underline;
@@ -110,7 +111,7 @@
 	border: 2px inset #2e3b41;
 }
 #app .fixed-height {
-	height: 200px;
+	height: 300px;
 	overflow-y: auto;
 }
 #app .row {
@@ -127,9 +128,6 @@
 }
 #app .dummy {
 	font-size: 10pt;
-}
-#app .small {
-	font-size: 8pt;
 }
 #app .grey {
 	color: #9b9b9b;

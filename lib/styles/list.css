@@ -13,5 +13,7 @@
 	width: 20px;
 }
 #app #users, #app #submissions {
-	overflow: auto;
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
 }

@@ -9,39 +9,39 @@
 	<body id="app">
 		<div id="options" class="group">
 			<div>
-				<h2>Extension Options</h2>
+				<h2 data-i18n="optionsTitle"></h2>
 			</div>
 			<table>
 				<tr class="row">
-					<td>Enable this extension<br>
-					(clicking the icon in the pop-up works too)</td>
+					<td data-i18n="optionsEnable"></td>
 					<td><input type="checkbox" id="enabled"></td>
 				</tr>
 				<tr class="row">
-					<td>Scan a webpage each time the tab is loaded</td>
+					<td data-i18n="optionsScan"></td>
 					<td><input type="checkbox" id="alwaysScan"></td>
 				</tr>
 				<tr class="row">
-					<td>Automatically sort the contents of filters</td>
+					<td data-i18n="optionsSort"></td>
 					<td><input type="checkbox" id="autoSort"></td>
 				</tr>
 				<tr class="row">
-					<td>Cleanup profile pages to remove extra content</td>
+					<td data-i18n="optionsCleanup"></td>
 					<td><input type="checkbox" id="firstItem"></td>
 				</tr>
 				<tr class="row">
-					<td>Use browser notifications</td>
+					<td data-i18n="optionsNotifications"></td>
 					<td><input type="checkbox" id="notifications"></td>
 				</tr>
 			</table>
 			<div>
-				<button id="reset-options">Reset Options</button>
-				<button id="reset-app" class="red">Purge Data</button>
+				<button id="reset-options" data-i18n="optionsReset"></button>
+				<button id="reset-app" class="red" data-i18n="optionsPurgeData"></button>
 			</div>
 		</div>
 		<script type="text/javascript" src="lib/core/prototype.js"></script>
 		<script type="text/javascript" src="lib/core/prototype-extension.js"></script>
 		<script type="text/javascript" src="lib/browser/browser-polyfill.js"></script>
+		<script type="text/javascript" src="lib/browser/i18n.js"></script>
 		<script type="text/javascript" src="lib/browser/messenger.js"></script>
 		<script type="text/javascript" src="lib/page/switch.js"></script>
 		<script type="text/javascript" src="lib/options.js"></script>

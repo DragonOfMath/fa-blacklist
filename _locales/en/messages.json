@@ -1,1 +1,434 @@
-{}
+{
+	"extensionName": {
+		"message": "FurAffinity Blacklist",
+		"description": "Name of the extension."
+	},
+	"extensionDescription": {
+		"message": "Interface modules for filtering content across FurAffinity",
+		"description": "Description of the extension."
+	},
+	
+	"blacklist": {
+		"message": "Blacklist",
+		"description": ""
+	},
+	"whitelist": {
+		"message": "Whitelist",
+		"description": ""
+	},
+	"filters": {
+		"message": "Filters",
+		"description": ""
+	},
+	"users": {
+		"message": "Users",
+		"description": ""
+	},
+	"submissions": {
+		"message": "Submissions",
+		"description": ""
+	},
+	"keywords": {
+		"message": "Keywords",
+		"description": ""
+	},
+	"options": {
+		"message": "Options",
+		"description": ""
+	},
+	"random": {
+		"message": "Random",
+		"description": ""
+	},
+	
+	"searchPlaceholder": {
+		"message": "🔎 Search...",
+		"description": "Placeholder text for any search bar."
+	},
+	"filtersPlaceholder": {
+		"message": "No filters found...",
+		"description": "Placeholder text when there are no filters to display."
+	},
+	"usersPlaceholder": {
+		"message": "No users found...",
+		"description": "Placeholder text when there are no users to display."
+	},
+	"submissionsPlaceholder": {
+		"message": "No submissions found...",
+		"description": "Placeholder text when there are no submissions to display."
+	},
+	
+	"confirmDiscard": {
+		"message": "Changes you made to $filter$ are unsaved. Save now?",
+		"description": "Confirmation dialog text when a filter has changes but is not saved.",
+		"placeholders": {
+			"filter": {
+				"content": "$1",
+				"default": "this filter"
+			}
+		}
+	},
+	"confirmDelete": {
+		"message": "Are you sure you want to delete $filter$? This action cannot be undone.",
+		"description": "Confirmation dialog text when the user clicks a delete button for a filter.",
+		"placeholders": {
+			"filter": {
+				"content": "$1",
+				"default": "this filter"
+			}
+		}
+	},
+	"promptUsername": {
+		"message": "Enter a username:",
+		"description": ""
+	},
+	
+	"popupTitle": {
+		"message": "FurAffinity Blacklist ",
+		"description": "Title text of the popup."
+	},
+	"popupToggleApp": {
+		"message": "Toggle this extension on/off",
+		"description": "Title text for the popup power button."
+	},
+	"popupNewFilter": {
+		"message": "+ New Filter",
+		"description": "Text for the popup filter button."
+	},
+	"popupMasterList": {
+		"message": "Master List",
+		"description": "Text for the popup master list button."
+	},
+	"popupOptions": {
+		"message": "Options",
+		"description": "Text for the popup options button."
+	},
+	"popupLove": {
+		"message": "Made with ❤",
+		"description": "Text for the popup footer."
+	},
+	"popupToggleFilter": {
+		"message": "Toggle $filter$ on/off",
+		"description": "Title text for toggle switches on the popup.",
+		"placeholders": {
+			"filter": {
+				"content": "$1",
+				"default": "(undefined)"
+			}
+		}
+	},
+	"popupRemoveFilter": {
+		"message": "Remove $filter$",
+		"description": "Title text for the delete button next to each filter on the popup.",
+		"placeholders": {
+			"filter": {
+				"content": "$1",
+				"default": "(undefined)"
+			}
+		}
+	},
+	
+	"editorNewText": {
+		"message": "New",
+		"description": "Text on new filter button in the editor."
+	},
+	"editorNewTitle": {
+		"message": "Make a new filter",
+		"description": "Title text for the new filter button in the editor."
+	},
+	"editorSaveText": {
+		"message": "Save",
+		"description": "Text on save filter button in the editor."
+	},
+	"editorSaveTitle": {
+		"message": "Save current filter",
+		"description": "Title text for the save filter button in the editor."
+	},
+	"editorCopyText": {
+		"message": "Save as Copy",
+		"description": "Text on copy filter button in the editor."
+	},
+	"editorCopyTitle": {
+		"message": "Save a copy of the current filter",
+		"description": "Title text for the copy filter button in the editor."
+	},
+	"editorLoadText": {
+		"message": "Load",
+		"description": "Text on load filter button in the editor."
+	},
+	"editorLoadTitle": {
+		"message": "Load a saved filter",
+		"description": "Title text for the load filter button in the editor."
+	},
+	"editorDeleteText": {
+		"message": "Delete",
+		"description": "Text on delete filter button in the editor."
+	},
+	"editorDeleteTitle": {
+		"message": "Delete the current filter and clear the editor",
+		"description": "Title text for the delete filter button in the editor."
+	},
+	"editorImportText": {
+		"message": "📤 Import",
+		"description": "Text on import filter button in the editor."
+	},
+	"editorImportTitle": {
+		"message": "Import a filter from your computer",
+		"description": "Title text for the import filter button in the editor."
+	},
+	"editorExportText": {
+		"message": "📥 Export",
+		"description": "Text on export filter button in the editor."
+	},
+	"editorExportTitle": {
+		"message": "Export this filter to your computer",
+		"description": "Title text for the export filter button in the editor."
+	},
+	"editorSelectFilter": {
+		"message": "Select a filter from the dropdown:",
+		"description": "Text preceding the filter selection dropdown in the editor."
+	},
+	"editorTitle": {
+		"message": "Filter Editor",
+		"description": "Title text of the filter editor main container."
+	},
+	"editorIDTitle": {
+		"message": "Filter ID",
+		"description": ""
+	},
+	"editorIDText": {
+		"message": "ID:",
+		"description": ""
+	},
+	"editorNameTitle": {
+		"message": "Filter name",
+		"description": ""
+	},
+	"editorNameText": {
+		"message": "Name:",
+		"description": ""
+	},
+	"editorNamePlaceholder": {
+		"message": "untitled",
+		"description": ""
+	},
+	"editorTypeText": {
+		"message": "Type:",
+		"description": ""
+	},
+	"editorTypeTitle": {
+		"message": "Filter type",
+		"description": ""
+	},
+	"editorColorText": {
+		"message": "Color:",
+		"description": ""
+	},
+	"editorColorTitle": {
+		"message": "Filter tag color",
+		"description": ""
+	},
+	"editorTextColorText": {
+		"message": "Text Color:",
+		"description": ""
+	},
+	"editorTextColorTitle": {
+		"message": "Filter text tag color",
+		"description": ""
+	},
+	"editorColorPicker": {
+		"message": "Pick a background color",
+		"description": ""
+	},
+	"editorEnableText": {
+		"message": "Enabled:",
+		"description": ""
+	},
+	"editorEnableTitle": {
+		"message": "Enable this filter",
+		"description": ""
+	},
+	"editorPreviewText": {
+		"message": "Preview:",
+		"description": ""
+	},
+	"editorPreviewTitle": {
+		"message": "Live tag preview",
+		"description": ""
+	},
+	"editorUsersText": {
+		"message": "Artists, art collectors, and everyone else have their names listed here.",
+		"description": ""
+	},
+	"editorCleanup": {
+		"message": "Clean and Sort",
+		"description": ""
+	},
+	"editorLength": {
+		"message": "Length: ",
+		"description": ""
+	},
+	"editorSubmissionsText": {
+		"message": "Each submission is identified by an ID number.",
+		"description": ""
+	},
+	"editorImportWatchlist": {
+		"message": "Import Watchlist",
+		"description": ""
+	},
+	"editorImportGallery": {
+		"message": "Import Gallery",
+		"description": ""
+	},
+	"editorImportFavorites": {
+		"message": "Import Favorites",
+		"description": ""
+	},
+	"editorKeywordsText": {
+		"message": "These can help identify content on a document that can be filtered out.",
+		"description": ""
+	},
+	"editorScanTitlesTitle": {
+		"message": "Scan submission titles",
+		"description": ""
+	},
+	"editorScanTitlesText": {
+		"message": "Scan submission titles for keywords:",
+		"description": ""
+	},
+	"editorScanUsernamesTitle": {
+		"message": "Scan usernames",
+		"description": ""
+	},
+	"editorScanUsernamesText": {
+		"message": "Scan usernames for keywords:",
+		"description": ""
+	},
+	"editorPreferenceTitle": {
+		"message": "Filter a user instead",
+		"description": ""
+	},
+	"editorPreferenceText": {
+		"message": "If a submission is matched, prefer filtering its creator instead:",
+		"description": ""
+	},
+	"editorKeywordSupport": {
+		"message": "Keywords support regular expression syntax.",
+		"description": ""
+	},
+	"editorOptionsTitle": {
+		"message": "Blacklist Options",
+		"description": ""
+	},
+	"editorOptionsText": {
+		"message": "Hide the following types of elements when users/submissions are blacklisted:",
+		"description": ""
+	},
+	"editorOptionAvatarText": {
+		"message": "Avatars:",
+		"description": ""
+	},
+	"editorOptionAvatarTitle": {
+		"message": "This hides the profile pictures of users",
+		"description": ""
+	},
+	"editorOptionUsernameText": {
+		"message": "Usernames/Mentions:",
+		"description": ""
+	},
+	"editorOptionUsernameTitle": {
+		"message": "This hides instances of the user's name",
+		"description": ""
+	},
+	"editorOptionCommentText": {
+		"message": "Comments/Shouts:",
+		"description": ""
+	},
+	"editorOptionCommentTitle": {
+		"message": "This hides comments and shouts made by the user",
+		"description": ""
+	},
+	"editorOptionThumbnailText": {
+		"message": "Thumbnails/Graphics:",
+		"description": ""
+	},
+	"editorOptionThumbnailTitle": {
+		"message": "This hides submission thumbnails, images, flashes, etc.",
+		"description": ""
+	},
+	"editorOptionTitleText": {
+		"message": "Titles:",
+		"description": ""
+	},
+	"editorOptionTitleTitle": {
+		"message": "This hides submission titles, if they are found",
+		"description": ""
+	},
+	"editorOptionLinkText": {
+		"message": "Other Links:",
+		"description": ""
+	},
+	"editorOptionLinkTitle": {
+		"message": "This hides any other kind of link that goes to a submission",
+		"description": ""
+	},
+	
+	"optionsTitle": {
+		"message": "Extension Options",
+		"description": "Title for the extension options page."
+	},
+	"optionsEnable": {
+		"message": "Enable this extension",
+		"description": "Text for the option to toggle the extension on or off."
+	},
+	"optionsScan": {
+		"message": "Scan a webpage each time the tab is loaded or switched to",
+		"description": "Text for the option to make webpage scanning happen more than once."
+	},
+	"optionsSort": {
+		"message": "Automatically sort the contents of filters",
+		"description": "Text for the option to auto-sort filter contents."
+	},
+	"optionsCleanup": {
+		"message": "Cleanup profile pages to remove extra content",
+		"description": "Text for the option to cleanup profile pages."
+	},
+	"optionsNotifications": {
+		"message": "Use browser notifications",
+		"description": "Text for the option to show browser notifications."
+	},
+	"optionsReset": {
+		"message": "Reset Options",
+		"description": "Text for the button that resets extension options."
+	},
+	"optionsPurgeData": {
+		"message": "Purge Data",
+		"description": "Text for the button that removes all app data."
+	},
+	
+	"listTitle": {
+		"message": "Master List",
+		"description": "Title of the master list page."
+	},
+	"listAddAll": {
+		"message": "Add All...",
+		"description": "Label for add-all dropdown used on master list and content pages."
+	},
+	"listRemoveAll": {
+		"message": "Remove All...",
+		"description": "Label for remove-all dropdown used on master list and content pages."
+	},
+	
+	"pageContentsTitle": {
+		"message": "Page Contents",
+		"description": "Title of the page contents window."
+	},
+	"pageShowWindowText": {
+		"message": "Blacklist",
+		"description": "Text on the button that shows the page contents window."
+	},
+	"pageShowWindowTitle": {
+		"message": "Display page contents in list form",
+		"description": "Title text for the button that shows the page contents window."
+	}
+}

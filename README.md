@@ -57,5 +57,14 @@ As of 2.1.0, the Master List is a special page that lists all the users and subm
 # To-Do
 I keep a to-do list of objectives that aren't required for the extension to work, but do add functionality that makes life easier. You can view the TODO.txt file to see what I have planned.
 
+# Contributing
+I am in need of volunteers to help translate messages. See `_locales/en/messages.json` for the English locales that need translating.
+
+If translating isn't your thing, you're also free to help beta-test this extension:
+1. Download this repository as a .zip file to your desktop and unzip it.
+2. Go to `about:debugging#addons` in Firefox
+3. Click "Load Temporary Add-on" and open the `manifest.json` file of the extension folder.
+4. Test it out! The extension remains until you close the browser or manually remove it.
+
 # Feedback
 Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist-webext/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.

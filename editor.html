@@ -12,131 +12,149 @@
 		<div id="editor">
 			<div class="group buttons" id="topnav">
 				<center>
-					<button id="new-filter" class="control" title="Make a new filter">New</button>
-					<button id="save-filter" class="control" title="Save current filter">Save</button>
-					<button id="copy-filter" class="control" title="Save a copy of the current filter">Save As Copy</button>
-					<button id="load-filter" class="control" title="Load an existing filter">Load</button>
-					<button id="delete-filter" class="control" title="Delete the current filter">Delete</button><br>
-					<button id="import-filter" class="control" title="Import a filter from desktop">📤 Import</button>
-					<button id="export-filter" class="control" title="Export this filter to desktop">📥 Export</button>
+					<button id="new-filter" class="control" data-i18n="editorNewTitle,title;editorNewText"></button>
+					<button id="save-filter" class="control" data-i18n="editorSaveTitle,title;editorSaveText"></button>
+					<button id="copy-filter" class="control" data-i18n="editorCopyTitle,title;editorCopyText"></button>
+					<button id="load-filter" class="control" data-i18n="editorLoadTitle,title;editorLoadText"></button>
+					<button id="delete-filter" class="control" data-i18n="editorDeleteTitle,title;editorDeleteText"></button><br>
+					<button id="import-filter" class="control" data-i18n="editorImportTitle,title;editorImportText"></button>
+					<button id="export-filter" class="control" data-i18n="editorExportTitle,title;editorExportText"></button>
 					<input id="import" type="file" class="hidden">
 				</center>
 				<div id="loadout" class="hidden">
-					<p>Select a filter from the dropdown:</p>
+					<p data-i18n="editorSelectFilter"></p>
 					<select id="filter-dropdown" value=""></select>
 				</div>
 			</div>
 			<div id="filter-info" class="group">
-				<h1>Filter Editor</h1>
+				<h1 data-i18n="editorTitle"></h1>
 				<table>
-					<tr class="row" title="Filter ID">
-						<td>ID:</td>
+					<tr class="row" data-i18n="editorIDTitle,title">
+						<td data-i18n="editorIDText"></td>
 						<td><code id="id"></code></td>
 					</tr>
-					<tr class="row" title="Filter name">
-						<td>Name:</td>
-						<td><input type="textbox" id="name" placeholder="untitled"></td>
+					<tr class="row" data-i18n="editorNameTitle,title">
+						<td data-i18n="editorNameText"></td>
+						<td><input type="textbox" id="name" data-i18n="editorNamePlaceholder,placeholder"></td>
 					</tr>
-					<tr class="row" title="Filter type">
-						<td>Type:</td>
+					<tr class="row" data-i18n="editorTypeTitle,title">
+						<td data-i18n="editorTypeText"></td>
 						<td>
 							<select id="type" value="0">
-								<option value="0">Blacklist</option>
-								<option value="1">Whitelist</option>
+								<option value="0" data-i18n="blacklist"></option>
+								<option value="1" data-i18n="whitelist"></option>
 							</select>
 						</td>
 					</tr>
-					<tr class="row" title="Filter color">
-						<td>Color:</td>
-						<td><input type="color" id="color" value="#ff0000" title="Pick a background color"><button id="random-color">Random</button></td>
+					<tr class="row" data-i18n="editorColorTitle,title">
+						<td data-i18n="editorColorText"></td>
+						<td>
+							<input type="color" id="color" value="#ff0000" data-i18n="editorColorPicker,title">
+							<button id="random-color" data-i18n="random"></button>
+						</td>
 					</tr>
-					<tr class="row" title="Filter text color">
-						<td>Text Color:</td>
-						<td><input type="color" id="color-text" value="#ffffff" title="Pick a text color"><button id="random-text-color">Random</button></td>
+					<tr class="row" data-i18n="editorTextColorTitle,title">
+						<td data-i18n="editorTextColorText"></td>
+						<td>
+							<input type="color" id="color-text" value="#ffffff" data-i18n="editorColorPicker,title">
+							<button id="random-text-color" data-i18n="random"></button>
+						</td>
 					</tr>
-					<tr class="row" title="Enable this filter">
-						<td>Enabled:</td>
-						<td><input type="checkbox" id="enabled" checked=""></td>
+					<tr class="row" data-i18n="editorEnableTitle,title">
+						<td data-i18n="editorEnableText"></td>
+						<td>
+							<input type="checkbox" id="enabled" checked="">
+						</td>
 					</tr>
-					<tr class="row" title="Live tag preview">
-						<td>Appearance:</td>
-						<td><span id="tag-preview" class="tag"><span class="text"></span><button class="remove">x</button></span></td>
+					<tr class="row" data-i18n="editorPreviewTitle,title">
+						<td data-i18n="editorPreviewText"></td>
+						<td>
+							<span id="tag-preview" class="tag"><span class="text"></span><button class="remove">x</button></span>
+						</td>
 					</tr>
 				</table>
 			</div>
 			
 			<div id="filter-contents" class="group">
 				<div id="filter-contents-users">
-					<h2>Users</h2>
-					<p>Artists, art collectors, and everyone else have their names listed here.</p>
+					<h2 data-i18n="users"></h2>
+					<p data-i18n="editorUsersText"></p>
 					<div class="buttons">
-						<button id="clean-sort-users">Clean and Sort</button>
-						<button id="get-watchlist">Import Watchlist</button>
+						<button id="clean-sort-users" data-i18n="editorCleanup"></button>
+						<button id="get-watchlist" data-i18n="editorImportWatchlist"></button>
 					</div>
 					<textarea id="users"></textarea>
-					<p class="small grey">Length: <span id="content-length-users">0</span></p>
+					<div class="small grey">
+						<span data-i18n="editorLength"></span>
+						<span id="content-length-users">0</span>
+					</div>
 				</div>
 				
 				<div id="filter-contents-submissions">
-					<h2>Submissions</h2>
-					<p>Each submission is identified by an ID number.</p>
+					<h2 data-i18n="submissions"></h2>
+					<p data-i18n="editorSubmissionsText"></p>
 					<div class="buttons">
-						<button id="clean-sort-submissions">Clean and Sort</button>
-						<button id="get-submissions">Import Gallery</button>
-						<button id="get-favorites">Import Favorites</button>
+						<button id="clean-sort-submissions" data-i18n="editorCleanup"></button>
+						<button id="get-submissions" data-i18n="editorImportGallery"></button>
+						<button id="get-favorites" data-i18n="editorImportFavorites"></button>
 					</div>
 					<textarea id="submissions"></textarea>
-					<p class="small grey">Length: <span id="content-length-submissions">0</span></p>
+					<div class="small grey">
+						<span data-i18n="editorLength"></span>
+						<span id="content-length-submissions">0</span>
+					</div>
 				</div>
 				
 				<div id="filter-contents-keywords">
-					<h2>Keywords</h2>
-					<p>These can help identify content on a document that can be filtered out.</p>
+					<h2 data-i18n="keywords"></h2>
+					<p data-i18n="editorKeywordsText"></p>
 					<table>
-						<tr class="row" title="Scan submission titles">
-							<td>Scan submission titles for keywords:</td>
+						<tr class="row" data-i18n="editorScanTitlesTitle,title">
+							<td data-i18n="editorScanTitlesText"></td>
 							<td><input type="checkbox" id="matchTitle"></td>
 						</tr>
-						<tr class="row" title="Scan usernames">
-							<td>Scan usernames for keywords:</td>
+						<tr class="row" data-i18n="editorScanUsernamesTitle,title">
+							<td data-i18n="editorScanUsernamesText"></td>
 							<td><input type="checkbox" id="matchName"></td>
 						</tr>
-						<tr class="row" title="Filter a user instead">
-							<td>If a submission is matched, prefer filtering its creator instead:</td>
+						<tr class="row" data-i18n="editorPreferenceTitle,title">
+							<td data-i18n="editorPreferenceText"></td>
 							<td><input type="checkbox" id="sensitive"></td>
 						</tr>
 					</table>
 					<textarea id="keywords"></textarea>
-					<div>Keywords support <b><a class="small" href="https://regex101.com" target="_blank">regular expression syntax</a></b>.</div>
+					<div>
+						<a href="https://regex101.com" target="_blank" data-i18n="editorKeywordSupport"></a>
+					</div>
 				</div>
 			</div>
 			
 			<div id="filter-options" class="group">
-				<h2>Blacklist Options</h2>
-				<p>Hide the following types of elements when users/submissions are blacklisted:</p>
+				<h2 data-i18n="options"></h2>
+				<p data-i18n="editorOptionsText"></p>
 				<table>
-					<tr class="row" title="This hides the profile pictures of users">
-						<td>Avatars:</td>
+					<tr class="row" data-i18n="editorOptionAvatarTitle,title">
+						<td data-i18n="editorOptionAvatarText"></td>
 						<td><input type="checkbox" id="avatar" checked=""></td>
 					</tr>
-					<tr class="row" title="This hides instances of the user's name">
-						<td>Username/Links:</td>
+					<tr class="row" data-i18n="editorOptionUsernameTitle,title">
+						<td data-i18n="editorOptionUsernameText"></td>
 						<td><input type="checkbox" id="username" checked=""></td>
 					</tr>
-					<tr class="row" title="This hides comments and shouts made by the user">
-						<td>Comments/Shouts:</td>
+					<tr class="row" data-i18n="editorOptionCommentTitle,title">
+						<td data-i18n="editorOptionCommentText"></td>
 						<td><input type="checkbox" id="comment" checked=""></td>
 					</tr>
-					<tr class="row" title="This hides submission thumbnails, images, flashes, etc.">
-						<td>Thumbnails:</td>
+					<tr class="row" data-i18n="editorOptionThumbnailTitle,title">
+						<td data-i18n="editorOptionThumbnailText"></td>
 						<td><input type="checkbox" id="thumbnail" checked=""></td>
 					</tr>
-					<tr class="row" title="This hides submission titles, if they are found">
-						<td>Titles:</td>
+					<tr class="row" data-i18n="editorOptionTitleTitle,title">
+						<td data-i18n="editorOptionTitleText"></td>
 						<td><input type="checkbox" id="title" checked=""></td>
 					</tr>
-					<tr class="row" title="This hides any other kind of link that goes to a submission">
-						<td>Other Links:</td>
+					<tr class="row" data-i18n="editorOptionLinkTitle,title">
+						<td data-i18n="editorOptionLinkText"></td>
 						<td><input type="checkbox" id="link" checked=""></td>
 					</tr>
 				</table>
@@ -145,6 +163,7 @@
 		<script type="text/javascript" src="lib/core/prototype.js"></script>
 		<script type="text/javascript" src="lib/core/prototype-extension.js"></script>
 		<script type="text/javascript" src="lib/browser/browser-polyfill.js"></script>
+		<script type="text/javascript" src="lib/browser/i18n.js"></script>
 		<script type="text/javascript" src="lib/browser/messenger.js"></script>
 		<script type="text/javascript" src="lib/page/file-io.js"></script>
 		<script type="text/javascript" src="lib/page/switch.js"></script>

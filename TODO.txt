@@ -2,7 +2,6 @@ TODO:
 * hide the first submission and favorite elements more permanently
 * use a dummy element to replace hidden element nodes so they may be hovered over without resorting to checking parent elements for viability
 * add more global settings (like what?)
-* add i18n locale support (requesting translators)
 * add context menus to webpages that add webextension functionality (Context menus have been put on wait due to the lack of cross-browser support for both `<menu>` and `browser.contextMenus`)
 	* when clicking on a user node, options include:
 		* add to filter
@@ -20,4 +19,5 @@ TODO:
 		* enable/disable
 
 IMPORTANT:
+* request translations
 * obtain an AMO signature and publish extension
