@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "__MSG_extensionName__",
 	"description": "__MSG_extensionDescription__",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"author": "DragonOfMath",
 	"homepage_url": "https://github.com/DragonOfMath/fa-blacklist-webext",
 	"default_locale": "en",
@@ -15,6 +15,7 @@
 		"scripts": [
 			"lib/core/prototype.js",
 			"lib/browser/browser-polyfill.js",
+			"lib/browser/i18n.js",
 			"lib/browser/messenger.js",
 			"lib/browser/storage.js",
 			"lib/browser/notify.js",
@@ -54,7 +55,9 @@
 	 
 	"browser_action": {
 		"browser_style": false,
-		"default_icon":  "static/fabl-32.png",
+		"default_icon":  {
+			"32": "static/fabl-32.png"
+		},
 		"default_title": "FA Blacklist",
 		"default_popup": "popup.html"
 	},

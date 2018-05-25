@@ -113,7 +113,7 @@
 		"placeholders": {
 			"filter": {
 				"content": "$1",
-				"default": "(undefined)"
+				"default": "this filter"
 			}
 		}
 	},
@@ -123,7 +123,7 @@
 		"placeholders": {
 			"filter": {
 				"content": "$1",
-				"default": "(undefined)"
+				"default": "this filter"
 			}
 		}
 	},
@@ -430,5 +430,10 @@
 	"pageShowWindowTitle": {
 		"message": "Display page contents in list form",
 		"description": "Title text for the button that shows the page contents window."
+	},
+	
+	"mainScanResults": {
+		"message": "Scanning Results",
+		"description": "Notification title text for the results of scanning a webpage."
 	}
 }
