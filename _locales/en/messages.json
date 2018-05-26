@@ -10,35 +10,35 @@
 	
 	"blacklist": {
 		"message": "Blacklist",
-		"description": ""
+		"description": "Generic use word for 'blacklist'."
 	},
 	"whitelist": {
 		"message": "Whitelist",
-		"description": ""
+		"description": "Generic use word for 'whitelist'."
 	},
 	"filters": {
 		"message": "Filters",
-		"description": ""
+		"description": "Generic use word for 'filter'."
 	},
 	"users": {
 		"message": "Users",
-		"description": ""
+		"description": "Generic use word for 'users'."
 	},
 	"submissions": {
 		"message": "Submissions",
-		"description": ""
+		"description": "Generic use word for 'submissions'."
 	},
 	"keywords": {
 		"message": "Keywords",
-		"description": ""
+		"description": "Generic use word for 'keywords'."
 	},
 	"options": {
 		"message": "Options",
-		"description": ""
+		"description": "Generic use word for 'options'."
 	},
 	"random": {
 		"message": "Random",
-		"description": ""
+		"description": "Generic use word for 'random'."
 	},
 	
 	"searchPlaceholder": {
@@ -134,7 +134,7 @@
 	},
 	"editorNewTitle": {
 		"message": "Make a new filter",
-		"description": "Title text for the new filter button in the editor."
+		"description": "Tooltip text for the new filter button in the editor."
 	},
 	"editorSaveText": {
 		"message": "Save",
@@ -142,7 +142,7 @@
 	},
 	"editorSaveTitle": {
 		"message": "Save current filter",
-		"description": "Title text for the save filter button in the editor."
+		"description": "Tooltip text for the save filter button in the editor."
 	},
 	"editorCopyText": {
 		"message": "Save as Copy",
@@ -150,7 +150,7 @@
 	},
 	"editorCopyTitle": {
 		"message": "Save a copy of the current filter",
-		"description": "Title text for the copy filter button in the editor."
+		"description": "Tooltip text for the copy filter button in the editor."
 	},
 	"editorLoadText": {
 		"message": "Load",
@@ -158,7 +158,7 @@
 	},
 	"editorLoadTitle": {
 		"message": "Load a saved filter",
-		"description": "Title text for the load filter button in the editor."
+		"description": "Tooltip text for the load filter button in the editor."
 	},
 	"editorDeleteText": {
 		"message": "Delete",
@@ -166,7 +166,7 @@
 	},
 	"editorDeleteTitle": {
 		"message": "Delete the current filter and clear the editor",
-		"description": "Title text for the delete filter button in the editor."
+		"description": "Tooltip text for the delete filter button in the editor."
 	},
 	"editorImportText": {
 		"message": "📤 Import",
@@ -174,7 +174,7 @@
 	},
 	"editorImportTitle": {
 		"message": "Import a filter from your computer",
-		"description": "Title text for the import filter button in the editor."
+		"description": "Tooltip text for the import filter button in the editor."
 	},
 	"editorExportText": {
 		"message": "📥 Export",
@@ -182,7 +182,7 @@
 	},
 	"editorExportTitle": {
 		"message": "Export this filter to your computer",
-		"description": "Title text for the export filter button in the editor."
+		"description": "Tooltip text for the export filter button in the editor."
 	},
 	"editorSelectFilter": {
 		"message": "Select a filter from the dropdown:",
@@ -192,185 +192,185 @@
 		"message": "Filter Editor",
 		"description": "Title text of the filter editor main container."
 	},
-	"editorIDTitle": {
-		"message": "Filter ID",
-		"description": ""
-	},
 	"editorIDText": {
 		"message": "ID:",
-		"description": ""
+		"description": "Label text for the ID field of the editor."
 	},
-	"editorNameTitle": {
-		"message": "Filter name",
-		"description": ""
+	"editorIDTitle": {
+		"message": "Filter ID",
+		"description": "Tooltip text for the ID field of the editor."
 	},
 	"editorNameText": {
 		"message": "Name:",
-		"description": ""
+		"description": "Label text for the name field of the editor."
+	},
+	"editorNameTitle": {
+		"message": "Filter name",
+		"description": "Tooltip text for the name field of the editor."
 	},
 	"editorNamePlaceholder": {
 		"message": "untitled",
-		"description": ""
+		"description": "Placeholder text for the name field of the editor."
 	},
 	"editorTypeText": {
 		"message": "Type:",
-		"description": ""
+		"description": "Label text for the type field of the editor."
 	},
 	"editorTypeTitle": {
 		"message": "Filter type",
-		"description": ""
+		"description": "Tooltip text for the type field of the editor."
 	},
 	"editorColorText": {
 		"message": "Color:",
-		"description": ""
+		"description": "Label text for the color field of the editor."
 	},
 	"editorColorTitle": {
 		"message": "Filter tag color",
-		"description": ""
+		"description": "Tooltip text for the color field of the editor."
 	},
 	"editorTextColorText": {
 		"message": "Text Color:",
-		"description": ""
+		"description": "Label text for the text color field of the editor."
 	},
 	"editorTextColorTitle": {
 		"message": "Filter text tag color",
-		"description": ""
+		"description": "Tooltip text for the text color field label of the editor."
 	},
 	"editorColorPicker": {
-		"message": "Pick a background color",
-		"description": ""
+		"message": "Pick a color",
+		"description": "Tooltip text for the color inputs of the editor."
 	},
 	"editorEnableText": {
 		"message": "Enabled:",
-		"description": ""
+		"description": "Label text for the enable field of the editor."
 	},
 	"editorEnableTitle": {
 		"message": "Enable this filter",
-		"description": ""
+		"description": "Tooltip text for the enable field of the editor."
 	},
 	"editorPreviewText": {
 		"message": "Preview:",
-		"description": ""
+		"description": "Label text for the tag preview of the editor."
 	},
 	"editorPreviewTitle": {
 		"message": "Live tag preview",
-		"description": ""
+		"description": "Tooltip text for the tag preview of the editor."
 	},
 	"editorUsersText": {
 		"message": "Artists, art collectors, and everyone else have their names listed here.",
-		"description": ""
+		"description": "Description of what the users textarea box is for."
 	},
 	"editorCleanup": {
 		"message": "Clean and Sort",
-		"description": ""
+		"description": "Text on the button that organizes the entries in a textarea box."
 	},
 	"editorLength": {
 		"message": "Length: ",
-		"description": ""
+		"description": "Label text for the number of entries in a textarea box."
 	},
 	"editorSubmissionsText": {
 		"message": "Each submission is identified by an ID number.",
-		"description": ""
+		"description": "Description of what the submissions textarea box is for."
 	},
 	"editorImportWatchlist": {
 		"message": "Import Watchlist",
-		"description": ""
+		"description": "Text on the button that retrieves one's watchlist and merges it with the users."
 	},
 	"editorImportGallery": {
 		"message": "Import Gallery",
-		"description": ""
+		"description": "Text on the button that retrieves one's gallery and adds it to the submissions."
 	},
 	"editorImportFavorites": {
 		"message": "Import Favorites",
-		"description": ""
+		"description": "Text on the button that retrieves one's favorites and adds it to the submissions."
 	},
 	"editorKeywordsText": {
-		"message": "These can help identify content on a document that can be filtered out.",
-		"description": ""
+		"message": "These can help identify content on a document that can be filtered out automatically.",
+		"description": "Description of the use of keywords."
 	},
 	"editorScanTitlesTitle": {
 		"message": "Scan submission titles",
-		"description": ""
+		"description": "Tooltip text for the option to scan the titles of submissions."
 	},
 	"editorScanTitlesText": {
 		"message": "Scan submission titles for keywords:",
-		"description": ""
+		"description": "Label text for the option to scan the titles of submissions."
 	},
 	"editorScanUsernamesTitle": {
 		"message": "Scan usernames",
-		"description": ""
+		"description": "Tooltip text for the option to scan the names of users."
 	},
 	"editorScanUsernamesText": {
 		"message": "Scan usernames for keywords:",
-		"description": ""
+		"description": "Label text for the option to scan the names of users."
 	},
 	"editorPreferenceTitle": {
 		"message": "Filter a user instead",
-		"description": ""
+		"description": "Tooltip text for the option to filter by user when scanning submissions."
 	},
 	"editorPreferenceText": {
 		"message": "If a submission is matched, prefer filtering its creator instead:",
-		"description": ""
+		"description": "Label text for the option to filte rby user when scanning submissions."
 	},
 	"editorKeywordSupport": {
 		"message": "Keywords support regular expression syntax.",
-		"description": ""
+		"description": "Link text that tells the client that keywords can be any regular expressions."
 	},
 	"editorOptionsTitle": {
 		"message": "Blacklist Options",
-		"description": ""
+		"description": "Title text for the blacklisting options category of the editor."
 	},
 	"editorOptionsText": {
 		"message": "Hide the following types of elements when users/submissions are blacklisted:",
-		"description": ""
+		"description": "Description of the blacklisting options category of the editor."
 	},
 	"editorOptionAvatarText": {
 		"message": "Avatars:",
-		"description": ""
+		"description": "Label text for the avatar option."
 	},
 	"editorOptionAvatarTitle": {
 		"message": "This hides the profile pictures of users",
-		"description": ""
+		"description": "Tooltip text for the avatar option."
 	},
 	"editorOptionUsernameText": {
 		"message": "Usernames/Mentions:",
-		"description": ""
+		"description": "Label text for the username option."
 	},
 	"editorOptionUsernameTitle": {
 		"message": "This hides instances of the user's name",
-		"description": ""
+		"description": "Tooltip text for the username option."
 	},
 	"editorOptionCommentText": {
 		"message": "Comments/Shouts:",
-		"description": ""
+		"description": "Label text for the comment option."
 	},
 	"editorOptionCommentTitle": {
 		"message": "This hides comments and shouts made by the user",
-		"description": ""
+		"description": "Tooltip text for the comment option."
 	},
 	"editorOptionThumbnailText": {
 		"message": "Thumbnails/Graphics:",
-		"description": ""
+		"description": "Label text for the thumbnail option."
 	},
 	"editorOptionThumbnailTitle": {
 		"message": "This hides submission thumbnails, images, flashes, etc.",
-		"description": ""
+		"description": "Tooltip text for the thumbnail option."
 	},
 	"editorOptionTitleText": {
 		"message": "Titles:",
-		"description": ""
+		"description": "Label text for the title option."
 	},
 	"editorOptionTitleTitle": {
 		"message": "This hides submission titles, if they are found",
-		"description": ""
+		"description": "Tooltip text for the title option."
 	},
 	"editorOptionLinkText": {
 		"message": "Other Links:",
-		"description": ""
+		"description": "Label text for the link option."
 	},
 	"editorOptionLinkTitle": {
 		"message": "This hides any other kind of link that goes to a submission",
-		"description": ""
+		"description": "Tooltip text for the label option."
 	},
 	
 	"optionsTitle": {
