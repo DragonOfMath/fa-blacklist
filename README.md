@@ -1,13 +1,21 @@
 # fa-blacklist-webext
 WebExtension for FurAffinity that adds advanced blacklisting/whitelisting capabilities.
 
+# Installation (temporary)
+1. Download this repository as a .zip file to your desktop and unzip it.
+2. Choose for your browser:
+  * For Firefox, go to `about:debugging#addons` and click "Load Temporary Add-on".
+  * For Chrome, go to `chrome://extensions`, enable Developer mode, and click "Load Unpacked".
+  * For other browsers, consult a quick google search because I'm too lazy to list them here.
+3. Open the `manifest.json` file of the extension directory, or load by selecting the directory.
+4. Test it out! The extension remains until you close the browser or manually remove it from the same page as you installed it.
+
 ### FA Blacklist 2: Electric Boogaloo
 After what felt like an eternity of waiting, the **FA Blacklist** is finally back and ***better than ever***.
 
-As you can see, it's no longer a userscript, but a *WebExtension*. There are many reasons this is necessary, one being that many features became obsolete in the meantime, and another that WebExtensions are standardized for nearly all popular browsers (*Note: Internet Explorer and Opera don't support even the basics for this extension, so please don't use them!*). That being said, there are some really *really* big changes I'd like to walk you through.
+As you can see, it's no longer a userscript, but a *WebExtension*. There are many reasons this is necessary, one being that many features became obsolete in the meantime, and another that WebExtensions are standardized for nearly all popular browsers (1). That being said, there are some really *really* big changes I'd like to walk you through.
 
 # Multiple Interfaces
-The single-pane draggable interface of the userscript has been split between several functional parts:
 * The browser action pop-up
 * The filter editor
 * The options page
@@ -29,10 +37,13 @@ The new filter editor is a huge upgrade from the original, and as a result, it n
 * Friendlier look, loadout, and tab updating
 * Live preview of the filter's tag as you modify its name, color, and certain options
 * Dropdown for the type of filter
+* Color picker for the font
 * Submissions textarea (yay!)
 * Switch labels replace checkboxes so they're easier to click on and look vvvv nice
 
-With the addition of filtering submissions individually, new options have arised. Auto-filtering has been expanded so that you can specify to match submissions, match usernames, and prefer what to filter. Getting one's watchlist has been deprecated due to a different origin for the editor, however I plan to bring it back somehow.
+With the addition of filtering submissions individually, new options have arised. Auto-filtering has been expanded so that you can specify to match submissions, match usernames, and prefer which to filter.
+
+As importing watchlists has been made possible again, so has importing galleries and favorites, thanks to [FAExport](https://github.com/boothale/FAExport).
 
 ### Options
 The options page is a quaint but useful webpage. It has undergone some changes from its predecessor, as follows:
@@ -54,17 +65,15 @@ You can see the newest addition to the interface by hovering over any user or su
 ### Master List
 As of 2.1.0, the Master List is a special page that lists all the users and submissions that are currently in filters. You have the advantage of editing tags off-site in the same fashion as on it. However, the initial loadout can be a heavy process.
 
+# Notes
+1. It is 100% recommended **not** to use Internet Explorer or Opera, as these are well behind in the standards for extensions. Firefox, Chrome, and Edge should suffice on both desktop and mobile.
+2. If you are still using the userscript version, please disable it when using the extension! Having both at the same time can cause interference with each other. 
+
 # To-Do
 I keep a to-do list of objectives that aren't required for the extension to work, but do add functionality that makes life easier. You can view the TODO.txt file to see what I have planned.
 
 # Contributing
-I am in need of volunteers to help translate messages. See `_locales/en/messages.json` for the English locales that need translating.
-
-If translating isn't your thing, you're also free to help beta-test this extension:
-1. Download this repository as a .zip file to your desktop and unzip it.
-2. Go to `about:debugging#addons` in Firefox
-3. Click "Load Temporary Add-on" and open the `manifest.json` file of the extension folder.
-4. Test it out! The extension remains until you close the browser or manually remove it.
+I am in need of volunteers to help translate messages. See `_locales/en/messages.json` for the English locales that need translating. If translating isn't your thing, you're also free to help beta-test this extension for desktop and mobile.
 
 # Feedback
 Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist-webext/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.

@@ -4,62 +4,62 @@
 		"description": "Name of the extension."
 	},
 	"extensionDescription": {
-		"message": "Interface modules for filtering content across FurAffinity",
+		"message": "Модули интерфейса для фильтрации контента на FurAffinity",
 		"description": "Description of the extension."
 	},
 	
 	"blacklist": {
-		"message": "Blacklist",
+		"message": "Черный список",
 		"description": "Generic use word for 'blacklist'."
 	},
 	"whitelist": {
-		"message": "Whitelist",
+		"message": "Белый список",
 		"description": "Generic use word for 'whitelist'."
 	},
 	"filters": {
-		"message": "Filters",
+		"message": "Фильтры",
 		"description": "Generic use word for 'filter'."
 	},
 	"users": {
-		"message": "Users",
+		"message": "Пользователи",
 		"description": "Generic use word for 'users'."
 	},
 	"submissions": {
-		"message": "Submissions",
+		"message": "Контент FA",
 		"description": "Generic use word for 'submissions'."
 	},
 	"keywords": {
-		"message": "Keywords",
+		"message": "Ключевые слова",
 		"description": "Generic use word for 'keywords'."
 	},
 	"options": {
-		"message": "Options",
+		"message": "Настройки",
 		"description": "Generic use word for 'options'."
 	},
 	"random": {
-		"message": "Random",
+		"message": "Случайный цвет",
 		"description": "Generic use word for 'random'."
 	},
 	
 	"searchPlaceholder": {
-		"message": "🔎 Search...",
+		"message": "🔎 Поиск...",
 		"description": "Placeholder text for any search bar."
 	},
 	"filtersPlaceholder": {
-		"message": "No filters found...",
+		"message": "Фильтры не найдены...",
 		"description": "Placeholder text when there are no filters to display."
 	},
 	"usersPlaceholder": {
-		"message": "No users found...",
+		"message": "Пользователи не найдены...",
 		"description": "Placeholder text when there are no users to display."
 	},
 	"submissionsPlaceholder": {
-		"message": "No submissions found...",
+		"message": "Контент не найден...",
 		"description": "Placeholder text when there are no submissions to display."
 	},
 	
 	"confirmDiscard": {
-		"message": "Changes you made to $filter$ are unsaved. Save now?",
+		"message": "Изменения $filter$ не сохранены. Сохранить?",
 		"description": "Confirmation dialog text when a filter has changes but is not saved.",
 		"placeholders": {
 			"filter": {
@@ -69,7 +69,7 @@
 		}
 	},
 	"confirmDelete": {
-		"message": "Are you sure you want to delete $filter$? This action cannot be undone.",
+		"message": "Вы точно хотите удалить $filter$? Это действие нельзя отменить.",
 		"description": "Confirmation dialog text when the user clicks a delete button for a filter.",
 		"placeholders": {
 			"filter": {
@@ -79,11 +79,11 @@
 		}
 	},
 	"confirmEraseData": {
-		"message": "Are you sure you want to erase all data for this extension?",
+		"message": "Вы уверены что хотите удалить все данные этого расширения?",
 		"description": "Confirmation dialog text when the user wants to purge all extension data."
 	},
 	"promptUsername": {
-		"message": "Enter a username:",
+		"message": "Введите имя пользователя:",
 		"description": ""
 	},
 	
@@ -92,27 +92,27 @@
 		"description": "Title text of the popup."
 	},
 	"popupToggleApp": {
-		"message": "Toggle this extension on/off",
+		"message": "Включить/выключить расширение",
 		"description": "Title text for the popup power button."
 	},
 	"popupNewFilter": {
-		"message": "+ New Filter",
+		"message": "+ Добавить фильтр",
 		"description": "Text for the popup filter button."
 	},
 	"popupMasterList": {
-		"message": "Master List",
+		"message": "Главный список",
 		"description": "Text for the popup master list button."
 	},
 	"popupOptions": {
-		"message": "Options",
+		"message": "Настройки",
 		"description": "Text for the popup options button."
 	},
 	"popupLove": {
-		"message": "Made with ❤",
+		"message": "Сделано с ❤",
 		"description": "Text for the popup footer."
 	},
 	"popupToggleFilter": {
-		"message": "Toggle $filter$ on/off",
+		"message": "Включить/выключить $filter$",
 		"description": "Title text for toggle switches on the popup.",
 		"placeholders": {
 			"filter": {
@@ -122,7 +122,7 @@
 		}
 	},
 	"popupRemoveFilter": {
-		"message": "Remove $filter$",
+		"message": "Удалить $filter$",
 		"description": "Title text for the delete button next to each filter on the popup.",
 		"placeholders": {
 			"filter": {
@@ -133,67 +133,67 @@
 	},
 	
 	"editorNewText": {
-		"message": "New",
+		"message": "Добавить",
 		"description": "Text on new filter button in the editor."
 	},
 	"editorNewTitle": {
-		"message": "Make a new filter",
+		"message": "Создать новый фильтр",
 		"description": "Tooltip text for the new filter button in the editor."
 	},
 	"editorSaveText": {
-		"message": "Save",
+		"message": "Сохранить",
 		"description": "Text on save filter button in the editor."
 	},
 	"editorSaveTitle": {
-		"message": "Save current filter",
+		"message": "Сохранить текущий фильтр",
 		"description": "Tooltip text for the save filter button in the editor."
 	},
 	"editorCopyText": {
-		"message": "Save as Copy",
+		"message": "Сохранить как копию",
 		"description": "Text on copy filter button in the editor."
 	},
 	"editorCopyTitle": {
-		"message": "Save a copy of the current filter",
+		"message": "Сохранить копию текущего фильтра",
 		"description": "Tooltip text for the copy filter button in the editor."
 	},
 	"editorLoadText": {
-		"message": "Load",
+		"message": "Загрузить",
 		"description": "Text on load filter button in the editor."
 	},
 	"editorLoadTitle": {
-		"message": "Load a saved filter",
+		"message": "Загрузить сохраненный фильтр",
 		"description": "Tooltip text for the load filter button in the editor."
 	},
 	"editorDeleteText": {
-		"message": "Delete",
+		"message": "Удалить",
 		"description": "Text on delete filter button in the editor."
 	},
 	"editorDeleteTitle": {
-		"message": "Delete the current filter and clear the editor",
+		"message": "Удалить текущий фильтр",
 		"description": "Tooltip text for the delete filter button in the editor."
 	},
 	"editorImportText": {
-		"message": "📤 Import",
+		"message": "📤 Импортировать",
 		"description": "Text on import filter button in the editor."
 	},
 	"editorImportTitle": {
-		"message": "Import a filter from your computer",
+		"message": "Импортировать фильтр с ПК",
 		"description": "Tooltip text for the import filter button in the editor."
 	},
 	"editorExportText": {
-		"message": "📥 Export",
+		"message": "📥 Экспортировать",
 		"description": "Text on export filter button in the editor."
 	},
 	"editorExportTitle": {
-		"message": "Export this filter to your computer",
+		"message": "Экспортировать на ПК",
 		"description": "Tooltip text for the export filter button in the editor."
 	},
 	"editorSelectFilter": {
-		"message": "Select a filter from the dropdown:",
+		"message": "Выберите фильтр из списка:",
 		"description": "Text preceding the filter selection dropdown in the editor."
 	},
 	"editorTitle": {
-		"message": "Filter Editor",
+		"message": "Настройка фильтра",
 		"description": "Title text of the filter editor main container."
 	},
 	"editorIDText": {
@@ -201,243 +201,243 @@
 		"description": "Label text for the ID field of the editor."
 	},
 	"editorIDTitle": {
-		"message": "Filter ID",
+		"message": "ID фильтра",
 		"description": "Tooltip text for the ID field of the editor."
 	},
 	"editorNameText": {
-		"message": "Name:",
+		"message": "Имя:",
 		"description": "Label text for the name field of the editor."
 	},
 	"editorNameTitle": {
-		"message": "Filter name",
+		"message": "Имя фильтра",
 		"description": "Tooltip text for the name field of the editor."
 	},
 	"editorNamePlaceholder": {
-		"message": "untitled",
+		"message": "безымянный",
 		"description": "Placeholder text for the name field of the editor."
 	},
 	"editorTypeText": {
-		"message": "Type:",
+		"message": "По типу:",
 		"description": "Label text for the type field of the editor."
 	},
 	"editorTypeTitle": {
-		"message": "Filter type",
+		"message": "Тип фильтра",
 		"description": "Tooltip text for the type field of the editor."
 	},
 	"editorColorText": {
-		"message": "Color:",
+		"message": "Цвет:",
 		"description": "Label text for the color field of the editor."
 	},
 	"editorColorTitle": {
-		"message": "Filter tag color",
+		"message": "Цвет бирки фильтра",
 		"description": "Tooltip text for the color field of the editor."
 	},
 	"editorTextColorText": {
-		"message": "Text Color:",
+		"message": "Цвет текста:",
 		"description": "Label text for the text color field of the editor."
 	},
 	"editorTextColorTitle": {
-		"message": "Filter text tag color",
+		"message": "Цвет текста бирки",
 		"description": "Tooltip text for the text color field label of the editor."
 	},
 	"editorColorPicker": {
-		"message": "Pick a color",
+		"message": "Выберите цвет",
 		"description": "Tooltip text for the color inputs of the editor."
 	},
 	"editorEnableText": {
-		"message": "Enabled:",
+		"message": "Включен:",
 		"description": "Label text for the enable field of the editor."
 	},
 	"editorEnableTitle": {
-		"message": "Enable this filter",
+		"message": "Включение фильтра",
 		"description": "Tooltip text for the enable field of the editor."
 	},
 	"editorPreviewText": {
-		"message": "Preview:",
+		"message": "Предпросмотр:",
 		"description": "Label text for the tag preview of the editor."
 	},
 	"editorPreviewTitle": {
-		"message": "Live tag preview",
+		"message": "Предпросмотр бирки фильтра",
 		"description": "Tooltip text for the tag preview of the editor."
 	},
 	"editorUsersText": {
-		"message": "Artists, art collectors, and everyone else have their names listed here.",
+		"message": "Имена художников, писателей и прочих людей находятся тут.",
 		"description": "Description of what the users textarea box is for."
 	},
 	"editorCleanup": {
-		"message": "Clean and Sort",
+		"message": "Отчистить и отсортировать",
 		"description": "Text on the button that organizes the entries in a textarea box."
 	},
 	"editorLength": {
-		"message": "Length: ",
+		"message": "Количество: ",
 		"description": "Label text for the number of entries in a textarea box."
 	},
 	"editorSubmissionsText": {
-		"message": "Each submission is identified by an ID number.",
+		"message": "У каждого файла на FA свой ID.",
 		"description": "Description of what the submissions textarea box is for."
 	},
 	"editorImportWatchlist": {
-		"message": "Import Watchlist",
+		"message": "Импортировать подписки",
 		"description": "Text on the button that retrieves one's watchlist and merges it with the users."
 	},
 	"editorImportGallery": {
-		"message": "Import Gallery",
+		"message": "Импортировать галерею",
 		"description": "Text on the button that retrieves one's gallery and adds it to the submissions."
 	},
 	"editorImportFavorites": {
-		"message": "Import Favorites",
+		"message": "Импортировать избранное",
 		"description": "Text on the button that retrieves one's favorites and adds it to the submissions."
 	},
 	"editorKeywordsText": {
-		"message": "These can help identify content on a document that can be filtered out automatically.",
+		"message": "Ключевые слова помогают в идентификации и фильтрации контента.",
 		"description": "Description of the use of keywords."
 	},
 	"editorScanTitlesTitle": {
-		"message": "Scan submission titles",
+		"message": "Сканируют заголовок контента на наличие ключевых слов",
 		"description": "Tooltip text for the option to scan the titles of submissions."
 	},
 	"editorScanTitlesText": {
-		"message": "Scan submission titles for keywords:",
+		"message": "Сканирование названия работы:",
 		"description": "Label text for the option to scan the titles of submissions."
 	},
 	"editorScanUsernamesTitle": {
-		"message": "Scan usernames",
+		"message": "Сканирует имена пользователей на наличие ключевых слов",
 		"description": "Tooltip text for the option to scan the names of users."
 	},
 	"editorScanUsernamesText": {
-		"message": "Scan usernames for keywords:",
+		"message": "Сканировать имя пользователей:",
 		"description": "Label text for the option to scan the names of users."
 	},
 	"editorPreferenceTitle": {
-		"message": "Filter a user instead",
+		"message": "Фильтрует пользователей",
 		"description": "Tooltip text for the option to filter by user when scanning submissions."
 	},
 	"editorPreferenceText": {
-		"message": "If a submission is matched, prefer filtering its creator instead:",
+		"message": "Если нашлось совпадение в контенте, фильтруем по пользователю:",
 		"description": "Label text for the option to filter by user when scanning submissions."
 	},
 	"editorKeywordSupport": {
-		"message": "Keywords support regular expression syntax.",
+		"message": "Ключевые слова поддерживают стандартный синтаксис выражений.",
 		"description": "Link text that tells the client that keywords can be any regular expressions."
 	},
 	"editorOptionsTitle": {
-		"message": "Blacklist Options",
+		"message": "Настройки черного списка",
 		"description": "Title text for the blacklisting options category of the editor."
 	},
 	"editorOptionsText": {
-		"message": "Hide the following types of elements when users/submissions are blacklisted:",
+		"message": "Скрывать данные элементы если пользователь/контент находятся в черном списке:",
 		"description": "Description of the blacklisting options category of the editor."
 	},
 	"editorOptionAvatarText": {
-		"message": "Avatars:",
+		"message": "Аватарка:",
 		"description": "Label text for the avatar option."
 	},
 	"editorOptionAvatarTitle": {
-		"message": "This hides the profile pictures of users",
+		"message": "Скрывает аватарку пользователя",
 		"description": "Tooltip text for the avatar option."
 	},
 	"editorOptionUsernameText": {
-		"message": "Usernames/Mentions:",
+		"message": "Имя пользователя:",
 		"description": "Label text for the username option."
 	},
 	"editorOptionUsernameTitle": {
-		"message": "This hides instances of the user's name",
+		"message": "Скрывает имя пользователя",
 		"description": "Tooltip text for the username option."
 	},
 	"editorOptionCommentText": {
-		"message": "Comments/Shouts:",
+		"message": "Комментарии:",
 		"description": "Label text for the comment option."
 	},
 	"editorOptionCommentTitle": {
-		"message": "This hides comments and shouts made by the user",
+		"message": "Скрывает комментарии пользователя в черном списке",
 		"description": "Tooltip text for the comment option."
 	},
 	"editorOptionThumbnailText": {
-		"message": "Thumbnails/Graphics:",
+		"message": "Превью контента:",
 		"description": "Label text for the thumbnail option."
 	},
 	"editorOptionThumbnailTitle": {
-		"message": "This hides submission thumbnails, images, flashes, etc.",
+		"message": "Скрывает превью контента (картинки)",
 		"description": "Tooltip text for the thumbnail option."
 	},
 	"editorOptionTitleText": {
-		"message": "Titles:",
+		"message": "Заголовки:",
 		"description": "Label text for the title option."
 	},
 	"editorOptionTitleTitle": {
-		"message": "This hides submission titles, if they are found",
+		"message": "Скрывает название контента",
 		"description": "Tooltip text for the title option."
 	},
 	"editorOptionLinkText": {
-		"message": "Other Links:",
+		"message": "Другие ссылки:",
 		"description": "Label text for the link option."
 	},
 	"editorOptionLinkTitle": {
-		"message": "This hides any other kind of link that goes to a submission",
+		"message": "Скрывает любые ссылки ведущие к контенту в черном списке",
 		"description": "Tooltip text for the label option."
 	},
 	
 	"optionsTitle": {
-		"message": "Extension Options",
+		"message": "Настройки расширения",
 		"description": "Title for the extension options page."
 	},
 	"optionsEnable": {
-		"message": "Enable this extension",
+		"message": "Включить расширение",
 		"description": "Text for the option to toggle the extension on or off."
 	},
 	"optionsScan": {
-		"message": "Scan a webpage each time the tab is loaded or switched to",
+		"message": "Сканировать вкладку каждый при переключении на нее или ее загрузке",
 		"description": "Text for the option to make webpage scanning happen more than once."
 	},
 	"optionsSort": {
-		"message": "Automatically sort the contents of filters",
+		"message": "Автоматически сортировать фильтры",
 		"description": "Text for the option to auto-sort filter contents."
 	},
 	"optionsCleanup": {
-		"message": "Remove the submission previews on profile pages.",
+		"message": "Очищать превью контента на странице профиля",
 		"description": "Text for the option to cleanup profile pages."
 	},
 	"optionsNotifications": {
-		"message": "Use browser notifications",
+		"message": "Использовать уведомления браузера",
 		"description": "Text for the option to show browser notifications."
 	},
 	"optionsReset": {
-		"message": "Reset Options",
+		"message": "Сбросить настройки до заводских",
 		"description": "Text for the button that resets extension options."
 	},
 	"optionsPurgeData": {
-		"message": "Purge Data",
+		"message": "Удалить все данные",
 		"description": "Text for the button that removes all app data."
 	},
 	
 	"listTitle": {
-		"message": "Master List",
+		"message": "Главный список",
 		"description": "Title of the master list page."
 	},
 	"listAddAll": {
-		"message": "Add All...",
+		"message": "Добавить все...",
 		"description": "Label for add-all dropdown used on master list and content pages."
 	},
 	"listRemoveAll": {
-		"message": "Remove All...",
+		"message": "Удалить все...",
 		"description": "Label for remove-all dropdown used on master list and content pages."
 	},
 	
 	"pageContentsTitle": {
-		"message": "Page Contents",
+		"message": "Содержание страницы",
 		"description": "Title of the page contents window."
 	},
 	"pageShowWindowText": {
-		"message": "Blacklist",
+		"message": "Черный список",
 		"description": "Text on the button that shows the page contents window."
 	},
 	"pageShowWindowTitle": {
-		"message": "Display page contents in list form",
+		"message": "Вывод содержания страницы в виде списка",
 		"description": "Title text for the button that shows the page contents window."
 	},
 	
 	"mainScanResults": {
-		"message": "Scanning Results",
+		"message": "Результаты сканирования",
 		"description": "Notification title text for the results of scanning a webpage."
 	}
 }
