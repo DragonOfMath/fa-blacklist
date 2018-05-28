@@ -1,13 +1,4 @@
 /* page.css */
-#app #app-show-window {
-	position: fixed;
-	left: 10px;
-	top: 40px;
-	opacity: 0.5;
-}
-#app #app-show-window:hover {
-	opacity: 1;
-}
 #app #app-hide-window {
 	font-size: 12pt;
 	float: right;
