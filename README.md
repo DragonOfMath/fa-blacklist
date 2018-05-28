@@ -58,7 +58,7 @@ The options page is a quaint but useful webpage. It has undergone some changes f
 * A **Purge Data** button, which will reset the app to its original factory state
 
 ### Page Interface
-When viewing webpages on FurAffinity, you'll notice a button in the top-left that says "Blacklist". Click it and you will see a windowed list of all the users and submissions found on the page that you can apply tags to. The window is draggable like before, but now has a top-right button to hide it.
+When viewing webpages on FurAffinity, you'll notice a new option in the navbar called "Blacklist" with a familar icon next to it. Click it and you will see a windowed list of all the users and submissions found on the page that you can apply tags to. The window is draggable like before, but now has a top-right button to hide it.
 
 You can see the newest addition to the interface by hovering over any user or submission on the page for a couple seconds. The window will update and narrow its list down to only the stuff relevant to what you hovered over. Pretty neat, huh?
 

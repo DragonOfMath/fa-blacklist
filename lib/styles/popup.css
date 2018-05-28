@@ -21,6 +21,9 @@
 	filter: grayscale(100%);
 	-webkit-filter: grayscale(100%);
 }
+#app #version {
+	margin-left: 6px;
+}
 #app .remove {
 	border: none;
 	font-size: 12pt;
