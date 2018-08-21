@@ -11,6 +11,8 @@ WebExtension for FurAffinity that adds advanced blacklisting/whitelisting capabi
 3. Open the `manifest.json` file of the extension directory, or load by selecting the directory.
 4. Test it out! The extension remains until you close the browser or manually remove it from the same page as you installed it.
 
+(Ignore manifest warnings: browsers may have conflicting strictness about its properties, but the end result makes no difference on the usage)
+
 ### FA Blacklist 2: Electric Boogaloo
 After what felt like an eternity of waiting, the **FA Blacklist** is finally back and ***better than ever***.
 
@@ -67,7 +69,8 @@ You can see the newest addition to the interface by hovering over any user or su
 As of 2.1.0, the Master List is a special page that lists all the users and submissions that are currently in filters. You have the advantage of editing tags off-site in the same fashion as on it. However, the initial loadout can be a heavy process.
 
 # Notes
-1. It is 100% recommended **not** to use Internet Explorer or Opera, as these are well behind in the standards for extensions. Firefox, Chrome, and Edge should suffice on both desktop and mobile.
+1. It is 100% recommended **not** to use Internet Explorer or mobile browsers, as these tend to be far behind in the WebExtension standards. Edge and Opera are also slightly behind, but are still compatible.
+
 2. If you are still using the userscript version, please disable it when using the extension! Having both at the same time can cause interference with each other. 
 
 # To-Do
