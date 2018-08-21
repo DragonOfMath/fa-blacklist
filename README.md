@@ -6,6 +6,7 @@ WebExtension for FurAffinity that adds advanced blacklisting/whitelisting capabi
 2. Choose for your browser:
   * For Firefox, go to `about:debugging#addons` and click "Load Temporary Add-on".
   * For Chrome, go to `chrome://extensions`, enable Developer mode, and click "Load Unpacked".
+  * For Opera, click on the Opera button and go to Extensions, click the Developer Mode button, and click "Load unpacked extension".
   * For other browsers, consult a quick google search because I'm too lazy to list them here.
 3. Open the `manifest.json` file of the extension directory, or load by selecting the directory.
 4. Test it out! The extension remains until you close the browser or manually remove it from the same page as you installed it.
