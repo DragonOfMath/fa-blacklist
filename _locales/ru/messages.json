@@ -409,6 +409,14 @@
 		"message": "Удалить все данные",
 		"description": "Text for the button that removes all app data."
 	},
+	"optionsImportAppData": {
+		"message": "Импортировать данные",
+		"description": "Text for the button that imports app data."
+	},
+	"optionsExportAppData": {
+		"message": "Экспортировать данные",
+		"description": "Text for the button that exports app data."
+	},
 	
 	"listTitle": {
 		"message": "Главный список",

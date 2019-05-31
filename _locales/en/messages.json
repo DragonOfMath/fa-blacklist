@@ -409,6 +409,14 @@
 		"message": "Purge Data",
 		"description": "Text for the button that removes all app data."
 	},
+	"optionsImportAppData": {
+		"message": "Import Data",
+		"description": "Text for the button that imports app data."
+	},
+	"optionsExportAppData": {
+		"message": "Export Data",
+		"description": "Text for the button taht exports app data."
+	},
 	
 	"listTitle": {
 		"message": "Master List",

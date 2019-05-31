@@ -13,29 +13,32 @@
 			</div>
 			<table>
 				<tr class="row">
-					<td data-i18n="optionsEnable"></td>
-					<td><input type="checkbox" id="enabled"></td>
+					<td><label for="enabled" data-i18n="optionsEnable"></label></td>
+					<td><input type="checkbox" class="option" id="enabled"></td>
 				</tr>
 				<tr class="row">
-					<td data-i18n="optionsScan"></td>
-					<td><input type="checkbox" id="alwaysScan"></td>
+					<td><label for="alwaysScan" data-i18n="optionsScan"></label></td>
+					<td><input type="checkbox" class="option" id="alwaysScan"></td>
 				</tr>
 				<tr class="row">
-					<td data-i18n="optionsSort"></td>
-					<td><input type="checkbox" id="autoSort"></td>
+					<td><label for="autoSort" data-i18n="optionsSort"></label></td>
+					<td><input type="checkbox" class="option" id="autoSort"></td>
 				</tr>
 				<tr class="row">
-					<td data-i18n="optionsCleanup"></td>
-					<td><input type="checkbox" id="firstItem"></td>
+					<td><label for="firstItem" data-i18n="optionsCleanup"></label></td>
+					<td><input type="checkbox" class="option" id="firstItem"></td>
 				</tr>
 				<tr class="row">
-					<td data-i18n="optionsNotifications"></td>
-					<td><input type="checkbox" id="notifications"></td>
+					<td><label for="notifications" data-i18n="optionsNotifications"></label></td>
+					<td><input type="checkbox" class="option" id="notifications"></td>
 				</tr>
 			</table>
 			<div>
+				<button id="export-app-data" data-i18n="optionsExportAppData"></button>
+				<button id="import-app-data" data-i18n="optionsImportAppData"></button>
 				<button id="reset-options" data-i18n="optionsReset"></button>
 				<button id="reset-app" class="red" data-i18n="optionsPurgeData"></button>
+				<input id="app-importer" type="file" class="hidden" />
 			</div>
 		</div>
 		<script type="text/javascript" src="lib/core/prototype.js"></script>
