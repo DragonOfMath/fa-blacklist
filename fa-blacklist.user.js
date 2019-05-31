@@ -2272,7 +2272,9 @@ DragHandler.listen('mousemove', function (e) {
 // "Switch" input
 function $Switch(type, $checkbox) {
 	if (typeof ($checkbox) !== 'object') {
-		$checkbox = html('input', {type: 'checkbox', checked: $checkbox||undefined});
+		var checked = $checkbox||false;
+		$checkbox = html('input', {type: 'checkbox'});
+		$checkbox.checked = checked;
 	}
 	var $switch = html('label').addClassName('switch');
 	var $slider = html('span').addClassName('slider').addClassName(type||'round');
@@ -2688,7 +2690,7 @@ var Filter = Class.create({
 		if (enabled) {
 			$tag.removeClassName('disabled');
 		} else {
-			$tag.addClassName('enabled');
+			$tag.addClassName('disabled');
 		}
 		if (enabled && auto) {
 			$tag.addClassName('auto');
@@ -4208,7 +4210,7 @@ var FilterList = {
 				Editor.load(filter.id);
 				$Tabs.switchTo('#editor');
 			});
-			var $enable = $Switch('round', filter.options.active || undefined)
+			var $enable = $Switch('round', filter.options.active)
 			.whenChanged(function (e) {
 				FilterList.toggleFilter(filter.id);
 				$tag.toggleClassName('disabled');
