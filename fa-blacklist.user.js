@@ -15,6 +15,7 @@
 
 var VERSION = '2.00';
 var SOURCE_URL = 'https://github.com/DragonOfMath/fa-blacklist-webext';
+var ICON_URL = 'https://raw.githubusercontent.com/DragonOfMath/fa-blacklist-webext/master/static/fabl-32.png';
 
 // ===== Prototype Extensions =====
 
@@ -4207,7 +4208,7 @@ var FilterList = {
 				Editor.load(filter.id);
 				$Tabs.switchTo('#editor');
 			});
-			var $enable = $Switch('round', filter.options.enabled || undefined)
+			var $enable = $Switch('round', filter.options.active || undefined)
 			.whenChanged(function (e) {
 				FilterList.toggleFilter(filter.id);
 				$tag.toggleClassName('disabled');
@@ -4336,7 +4337,7 @@ var Page = {
 			var filter = filters[ID];
 			
 			// skip disabled filters
-			if (!filter.options.enabled) continue;
+			if (!filter.options.active) continue;
 			
 			// do automatic search and filter
 			payload[ID] = { users: [], submissions: [] };
@@ -4526,10 +4527,10 @@ var App = {
 			// notify the user of the changes
 			if (Options.notifications) {
 				Notify(
-					App.TITLE + ' - ' + i18n.get('mainScanResults'),
+					'FA Blacklist - ' + i18n.get('mainScanResults'),
 					(users.length ? ('Users (' + users.length + '):\n' + users.join(', ') + '\n\n') : '') + 
 					(submissions.length ? ('Submissions (' + submissions.length + '):\n' + submissions.join(', ')) : ''),
-					App.ICON
+					ICON_URL
 				);
 			}
 		}
@@ -4684,7 +4685,7 @@ var App = {
 		//console.log('Toggling Filter:',ID);
 		if (ID in Filters) {
 			var filter = Filters[ID];
-			filter.options.enabled = !filter.options.enabled;
+			filter.options.active = !filter.options.active;
 			App.saveFiltersAndUpdate();
 			if (callback) callback(null);
 		} else {
@@ -4787,7 +4788,7 @@ var App = {
 
 var $Window = (function () {
 	var $title  = html('h2', {id: 'window-title'}, 'FA Blacklist ' + VERSION).addClassName('drag-handle');
-	var $icon   = html('img', {src: 'https://raw.githubusercontent.com/DragonOfMath/fa-blacklist-webext/master/static/fabl-32.png', id: 'icon'});
+	var $icon   = html('img', {src: ICON_URL, id: 'icon'});
 	var $hide   = html('button', {id: 'hide-app-window'}, '✖').addClassName('red');
 	var $header = html('div', {id: 'window-header'}, [$icon, $title, $hide]).addClassName('drag-handle');
 	var $body   = html('div', {id: 'window-body'});
