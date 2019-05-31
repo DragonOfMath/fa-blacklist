@@ -3998,7 +3998,7 @@ var List = {
 		Utils.populateDropdown(List.$usersAddAllDropdown,    Filters, List.$placeholderAddAllUsers);
 		Utils.populateDropdown(List.$usersRemoveAllDropdown, Filters, List.$placeholderRemoveAllUsers);
 		Utils.populateDropdown(List.$subsAddAllDropdown,     Filters, List.$placeholderAddAllSubs);
-		Utils.populateDropdown(List.$subsRemoveAllDropdown,  Filters, List.$placeholderRemoveAllSubss);
+		Utils.populateDropdown(List.$subsRemoveAllDropdown,  Filters, List.$placeholderRemoveAllSubs);
 		
 		List.$usersTable.childElements().invoke('hide');
 		List.$subsTable.childElements().invoke('hide');
