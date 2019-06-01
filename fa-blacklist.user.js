@@ -2818,10 +2818,10 @@ var Target = Class.create({
 	initialize: function (id) {
 		this.id = id;
 		this.tags = [];
-		this.tagsContainer = html('span', {id: 'tags'});
+		this.$tags = html('span', {id: 'tags'});
 	},
 	getTagElement: function (tag) {
-		return this.tagsContainer.querySelector('[id="'+tag+'"]');
+		return this.$tags.querySelector('[id="'+tag+'"]');
 	},
 	hasTag: function (tag) {
 		return this.tags.includes(tag);
@@ -2837,7 +2837,7 @@ var Target = Class.create({
 			
 			var target = this;
 			var $tag = Filters[tag].createTag();
-			this.tagsContainer.appendChild($tag);
+			this.$tags.appendChild($tag);
 			return $tag;
 		}
 	},
@@ -2873,6 +2873,12 @@ var User = Class.create(Target, {
 		return $a;
 	},
 	updateTags: function (filters) {
+		var deletedTags = this.tags.filter(function (ID) {
+			return !(ID in filters);
+		});
+		for (var ID of deletedTags) {
+			this.removeTag(ID);
+		}
 		for (var ID in filters) {
 			var filter = filters[ID];
 			if (filter.hasUser(this.id)) {
@@ -2910,6 +2916,12 @@ var Submission = Class.create(Target, {
 		return $super(tag) || (this.user && this.user.hasTag(tag));
 	},
 	updateTags: function (filters) {
+		var deletedTags = this.tags.filter(function (ID) {
+			return !(ID in filters);
+		});
+		for (var ID of deletedTags) {
+			this.removeTag(ID);
+		}
 		for (var ID in filters) {
 			var filter = filters[ID];
 			if (filter.hasSubmission(this.id)) {
@@ -2950,7 +2962,7 @@ Target.addMethods({
 	initialize: function (id) {
 		this.id = id;
 		this.tags = [];
-		this.tagsContainer = html('span', {id: 'tags'});
+		this.$tags = html('span', {id: 'tags'});
 		
 		this.nodes = [];
 		this.marked = false;
@@ -3971,7 +3983,6 @@ var List = {
 		
 		function createTableRow($table, target) {
 			var $link      = target.createLink();
-			var $container = target.tagsContainer;
 			var $dropdown  = html('select', {}).addClassName('add-tag').whenChanged(function (e,t) {
 				var f = e.target.value;
 				if (f) {
@@ -3979,7 +3990,7 @@ var List = {
 					e.target.value = '';
 				}
 			}, target);
-			var $row = html('div', {id: target.id}, [$link, $container, $dropdown]).addClassName('row');
+			var $row = html('div', {id: target.id}, [$link, target.$tags, $dropdown]).addClassName('row');
 			
 			$table.appendChild($row);
 			return $row;
@@ -4053,8 +4064,8 @@ var List = {
 			var $dropdown = $row.querySelector('select.add-tag');
 			var filters = {};
 			for (var ID in Filters) {
+				var $tag = target.getTagElement(ID);
 				if (target.hasTag(ID)) {
-					var $tag = target.getTagElement(ID);
 					if (!$tag) continue;
 					var $remove = $tag.querySelector('.remove');
 					if (!$remove) {
@@ -4064,6 +4075,7 @@ var List = {
 						$tag.appendChild($remove);
 					}
 				} else {
+					if ($tag) $tag.remove();
 					// populate tag dropdown
 					filters[ID] = Filters[ID];
 				}
@@ -4210,16 +4222,15 @@ var FilterList = {
 				Editor.load(filter.id);
 				$Tabs.switchTo('#editor');
 			});
-			var $enable = $Switch('round', filter.options.active)
-			.whenChanged(function (e) {
-				FilterList.toggleFilter(filter.id);
-				$tag.toggleClassName('disabled');
+			var $enable = $Switch('round', filter.options.active);
+			$enable.observe('change', function () {
+				FilterList.toggleFilter(filter.id, $tag);
 			});
 			$enable.setAttribute('title', i18n.get('popupToggleFilter', [filter.name]));
 			
-			var $remove = html('button', {class: 'remove red'}, '✖')
-			.whenClicked(function (e) {
-				FilterList.delete(filter.id);
+			var $remove = html('button', {class: 'remove red'}, '✖');
+			$remove.observe('click', function () {
+				FilterList.delete(filter.id, $row);
 			});
 			$remove.setAttribute('title', i18n.get('popupRemoveFilter', [filter.name]));
 			
@@ -4237,16 +4248,17 @@ var FilterList = {
 		App.toggle();
 		FilterList.updateToggle(Options.enabled);
 	},
-	toggleFilter: function (ID) {
+	toggleFilter: function (ID, $tag) {
 		//console.log('Toggling Filter from Filter List:',ID);
+		$tag.toggleClassName('disabled');
 		App.toggleFilter(ID);
 	},
-	delete: function (ID) {
+	delete: function (ID, $row) {
 		//console.log('Deleting Filter from Filter List:',ID);
 		var name = Filters[ID].name;
 		if (confirm(i18n.get('confirmDelete', [name]))) {
+			$row.remove();
 			App.deleteFilter(ID);
-			FilterList.querySelector('tr[id="'+ID+'"]').remove();
 		}
 	}
 };
@@ -4523,8 +4535,7 @@ var App = {
 			}
 			
 			// save changes
-			App.saveFilters();
-			Page.update();
+			App.saveFiltersAndUpdate(true);
 			
 			// notify the user of the changes
 			if (Options.notifications) {
@@ -4579,7 +4590,7 @@ var App = {
 					filter.addSubmission(data.target);
 					break;
 			}
-			App.saveFiltersAndUpdate();
+			App.saveFiltersAndUpdate(true);
 		} else {
 			console.error('Invalid Filter ID:',data.filter);
 		}
@@ -4598,7 +4609,7 @@ var App = {
 					filter.removeSubmission(data.target);
 					break;
 			}
-			App.saveFiltersAndUpdate();
+			App.saveFiltersAndUpdate(true);
 		} else {
 			console.error('Invalid Filter ID:',data.filter);
 		}
@@ -4622,7 +4633,7 @@ var App = {
 				console.error('Invalid Filter ID:',ID);
 			}
 		});
-		App.saveFiltersAndUpdate();
+		App.saveFiltersAndUpdate(true);
 	},
 	removeFromFilters: function (data) {
 		//console.log('Removing from Filters:',data);
@@ -4643,7 +4654,7 @@ var App = {
 				console.error('Invalid Filter ID:',ID);
 			}
 		});
-		App.saveFiltersAndUpdate();
+		App.saveFiltersAndUpdate(true);
 	},
 	addAllToFilter: function (data) {
 		//console.log('Adding all to Filter:',data);
@@ -4659,7 +4670,7 @@ var App = {
 					filter.addSubmissions(data.targets);
 					break;
 			}
-			App.saveFiltersAndUpdate();
+			App.saveFiltersAndUpdate(true);
 		} else {
 			console.error('Invalid Filter ID:',data.filter);
 		}
@@ -4678,7 +4689,7 @@ var App = {
 					filter.removeSubmissions(data.targets);
 					break;
 			}
-			App.saveFiltersAndUpdate();
+			App.saveFiltersAndUpdate(true);
 		} else {
 			console.error('Invalid Filter ID:',data.filter);
 		}
@@ -4688,18 +4699,19 @@ var App = {
 		if (ID in Filters) {
 			var filter = Filters[ID];
 			filter.options.active = !filter.options.active;
-			App.saveFiltersAndUpdate();
+			App.saveFiltersAndUpdate(true);
 			if (callback) callback(null);
 		} else {
 			console.error('Invalid Filter ID:',ID);
 		}
 	},
-	delete: function (ID) {
+	deleteFilter: function (ID) {
 		//console.log('Deleting Filter:',ID);
 		if (ID in Filters) {
 			var filter = Filters[ID];
+			
 			delete Filters[ID];
-			App.saveFilters();
+			App.saveFiltersAndUpdate(true);
 		} else {
 			console.error('Invalid Filter ID:',ID);
 		}
@@ -4769,9 +4781,10 @@ var App = {
 		//console.log('Saving Filters');
 		return GM.setValue('bl_blacklists', JSON.stringify(Filters)).catch(console.error);
 	},
-	saveFiltersAndUpdate: function () {
+	saveFiltersAndUpdate: function (pageOnly) {
 		App.saveFilters();
-		App.update();
+		if (pageOnly) Page.update();
+		else App.update();
 	},
 	import: function (data) {
 		//console.log('Importing App Data:', data);
@@ -4799,7 +4812,7 @@ var $Window = (function () {
 	$window.body = $body;
 
 	// hide window when the 'x' is clicked
-	$hide.whenClicked(function (e) {
+	$hide.observe('click', function (e) {
 		DragHandler.stop();
 		$window.hide();
 	});
@@ -4807,7 +4820,7 @@ var $Window = (function () {
 	
 	// insert a button into the webpage nav container
 	var $show = html('li', {id:'show-app-window'}, html('a', {href:'#'}, 'FA Blacklist'));
-	$show.whenClicked(function (e) {
+	$show.observe('click', function () {
 		$window.goto({x:20,y:60});
 		$window.show();
 		List.update();
@@ -4850,6 +4863,8 @@ document.body.appendChild($App);
 App.$app = $App;
 
 window.addEventListener('load', App.init);
-window.addEventListener('focus', App.load);
+window.addEventListener('focus', function (e) {
+	if (e.target === window) App.load();
+});
 window.addEventListener('beforeunload', Editor.catchUnsavedChanges);
 
