@@ -3778,7 +3778,6 @@ var OptionsForm = {
 		OptionsForm.$importAppData = $root.querySelector('#import-app-data');
 		OptionsForm.$exportAppData = $root.querySelector('#export-app-data');
 		OptionsForm.$appDataImporter = $root.querySelector('#app-importer');
-		
 		OptionsForm.addEventHandlers();
 		
 		return OptionsForm.$container;
@@ -3790,7 +3789,7 @@ var OptionsForm = {
 		OptionsForm.$resetApp.addEventListener('click', OptionsForm.resetApp, false);
 		OptionsForm.$exportAppData.addEventListener('click', App.export, false);
 		OptionsForm.$importAppData.addEventListener('click', function (e) {
-			Options.$appDataImporter.click();
+			OptionsForm.$appDataImporter.click();
 		}, false);
 		OptionsForm.$appDataImporter.observe('change', function () {
 			importFile(OptionsForm.$appDataImporter.files[0], function (contents) {
@@ -4339,7 +4338,7 @@ var Page = {
 		for (var name in Users) {
 			Users[name].showNodes();
 		}
-		for (var id in this.Submissions) {
+		for (var id in Submissions) {
 			Submissions[id].showNodes();
 		}
 	},
