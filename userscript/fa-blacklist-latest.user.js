@@ -657,15 +657,18 @@ function reload() {
 	window.reload_page();
 }
 function onOff(x) {
-	if (typeof x === 'boolean')
-		return x;
+	if (typeof x === 'boolean') return x;
 	return x == 'on';
 }
 function convertToJSON(x) {
-	return typeof x === 'string' ? JSON.parse(x) :
-		x.json ? x.json() : 
-		x.toJSON ? x.toJSON() : 
-		x;
+	if (typeof x === 'string') {
+		return JSON.parse(x);
+	}
+	if (typeof x === 'object') {
+		if (x.json) return x.json();
+		if (x.toJSON) return x.toJSON();
+	}
+	return x;
 }
 function handleError(e, silent) {
 	console.error(e);
@@ -674,12 +677,12 @@ function handleError(e, silent) {
 
 var debug = {
 	name: meta.NAME,
-	format: '[$name$ | $timestamp$ | $level$] $message$'
+	format: '[$name$ | $timestamp$ | $level$] $message$',
 	_level: 1,
 	_log: function (message, level) {
 		var params = {
 			name: this.name,
-			timestamp: (new Date()).toLocaleString()
+			timestamp: (new Date()).toLocaleString(),
 			level: level,
 			message: message
 		};
@@ -955,12 +958,12 @@ function $TabControl(tabs) {
 
 // empty window container
 function $Window(props) {
-	var $title  = html('h2', {className: 'window-title drag-handle'}, props.title || 'Untitled Window');
-	var $icon   = props.icon ? html('img', {className: 'window-icon', src: props.icon}) : null;
-	var $hide   = html('button', {className: 'hide-window red'}, '✖');
-	var $head   = html('div', {className: 'window-head drag-handle'}, [$icon, $title, $hide]);
-	var $body   = html('div', {className: 'window-body'}, props.body);
-	var $window = html('div', {className: 'window draggable drag-parent'}, [$head, $body]);
+	var $title  = html('h2', {class: 'window-title drag-handle'}, props.title || 'Untitled Window');
+	var $icon   = props.icon ? html('img', {class: 'window-icon', src: props.icon}) : null;
+	var $hide   = html('button', {class: 'hide-window red'}, '✖');
+	var $head   = html('div', {class: 'window-head drag-handle'}, [$icon, $title, $hide]);
+	var $body   = html('div', {class: 'window-body'}, props.body);
+	var $window = html('div', {class: 'window draggable drag-parent'}, [$head, $body]);
 	
 	$window.head = $head;
 	$window.body = $body;
@@ -1154,7 +1157,7 @@ var i18n = {
 	locale: 'en-us',
 	DEFAULT_LOCALE: 'en-us',
 	init: function () {
-		return GM.getValue('bl_locales')
+		return GM.getValue('bl_locales', '{}')
 		.then(convertToJSON)
 		.then(function (locales) {
 			if (!locales || locales._version !== meta.VERSION) {
@@ -1168,6 +1171,7 @@ var i18n = {
 	_updateLocales: function (locales) {
 		console.log('Fetching new locales dictionary');
 		var localesURL = (new URL(meta.LOCALES_HREF, meta.ROOT)).href;
+		console.log(localesURL);
 		return fetch(localesURL)
 		.then(convertToJSON)
 		.then(function (index) {
@@ -1302,8 +1306,7 @@ var Filter = Class.create({
 		return this.users.length + this.submissions.length;
 	},
 	createTag: function () {
-		var $text = html('span', {className: 'text'}, this.name);
-		var $tag = html('span', {}, $text);
+		var $tag = html('span', {class: 'tag'}, html('span', {class: 'text'}, this.name));
 		return this.updateTag($tag);
 	},
 	updateTag: function ($tag) {
@@ -1311,21 +1314,16 @@ var Filter = Class.create({
 
 		var enabled = this.options.active;
 		var auto = this.options.matchTitle || this.options.matchName;
-		var id = this.id;
-		var name = this.name;
-		var color = this.color;
-		var tcolor = this.tcolor;
-		var title = (this.desc || name) + (enabled ? '' : ' (disabled)');
+		var title = (this.desc || this.name) + (enabled ? '' : ' (disabled)');
 
-		$tag.addClassName('tag');
-		$tag.setAttribute('id', id);
+		$tag.setAttribute('id', this.id);
 		$tag.setAttribute('title', title);
 		$tag.setStyle({
-			backgroundColor: color,
-			borderColor: color,
-			color: tcolor
+			backgroundColor: this.color,
+			borderColor: this.color,
+			color: this.tcolor
 		});
-		$tag.querySelector('.text').textContent = name;
+		$tag.querySelector('.text').textContent = this.name;
 		if (enabled) {
 			$tag.removeClassName('disabled');
 		} else {
@@ -1520,7 +1518,7 @@ var User = Class.create(Target, {
 		return html('a', {
 			href: 'http://www.furaffinity.net/user/' + this.id,
 			target: '_blank',
-			className: 'name'
+			class: 'name'
 		}, this.id);
 	},
 	updateTags: function (filters) {
@@ -1560,7 +1558,7 @@ var Submission = Class.create(Target, {
 		return html('a', {
 			href: 'http://www.furaffinity.net/view/' + this.id,
 			target: '_blank',
-			className: 'name'
+			class: 'name'
 		}, this.getTitle());
 	},
 	// submissions inherit the tags of their user
@@ -1817,7 +1815,7 @@ function scrape() {
 	var profileName = '';
 	var profileUser = null;
 
-	var USER_DIRS = ['user', 'commissions', 'gallery', 'scraps', 'journals', 'favorites', 'newpm'];
+	var USER_DIRS = ['user', 'commissions', 'gallery', 'scraps', 'journals', 'favorites'];
 	var URL = parseURL(window.location.href);
 	var SUBMISSION_LINK = 'a[href*="/view/"]';
 	var USER_LINK = 'a[href*="/user/"]';
@@ -1864,7 +1862,7 @@ function scrape() {
 
 				// skip this element if it includes an avatar
 				var $avatar = $link.firstElementChild;
-				if (!($avatar && $avatar.hasClassName('avatar'))) {
+				if (!($avatar instanceof Element && $avatar.hasClassName('avatar'))) {
 					user.addNode($link, 'username');
 				}
 			} else if (id) {
@@ -1958,7 +1956,7 @@ function scrape() {
 	body.select('img.avatar', 'img.comment_useravatar', 'a.iconusername>img').forEach(processAvatars);
 
 	// parse comments and shouts (all usernames should exist in the table)
-	body.select('table[id*="shout"]', 'table.container-comment', 'div.comment_container').forEach(processComments);
+	body.select('comment-container', 'table[id*="shout"]', 'table.container-comment').forEach(processComments);
 
 	// parse content figures
 	var $contentItems = body.select('figure', 'b[id*="sid_"]', 'div.preview-gallery-container');
@@ -2612,6 +2610,7 @@ var List = {
 	$placeholderAddAllSubs: null,
 	$placeholderRemoveAllSubs: null,
 
+	_tablesBuilt: false,
 	listMode: 'visible',
 	
 	init: function () {
@@ -2649,13 +2648,13 @@ var List = {
 				List.$usersAddAllDropdown = html('select', {id: 'users-add-all'}),
 				List.$usersRemoveAllDropdown = html('select', {id: 'users-remove-all'})
 			]),
-			List.$usersTable = html('div', {id: 'users', className: 'group'}),
+			List.$usersTable = html('div', {id: 'users', class: 'group'}),
 			List.$subsGlobalContainer = html('div', {id: 'submissions-global'}, [
 				List.$subsTitle = html('h3', {'data-i18n': 'submissions'}),
 				List.$subsAddAllDropdown = html('select', {id: 'submissions-add-all'}),
 				List.$subsRemoveAllDropdown = html('select', {id: 'submissions-remove-all'})
 			]),
-			List.$subsTable = html('div', {id: 'submissions', className: 'group'})
+			List.$subsTable = html('div', {id: 'submissions', class: 'group'})
 		]);
 		List.addEventHandlers();
 		$root.appendChild(List.$elem);
@@ -2685,7 +2684,8 @@ var List = {
 	addEventHandlers: function () {
 		List.$listMode.whenChanged(function (e) {
 			List.listMode = e.target.value;
-			List.buildTables();
+			List._tablesBuilt = false;
+			List.update();
 		});
 		List.$scanNow.whenClicked(function (e) {
 			var results = Page.update(true);
@@ -2759,6 +2759,7 @@ var List = {
 		}
 		List._initTable(List.$usersTable, List.$usersPlaceholder, users);
 		List._initTable(List.$subsTable, List.$subsPlaceholder, submissions);
+		List._tablesBuilt = true;
 	},
 	_initTable: function ($table, $placeholder, objects) {
 		$table.removeChildren();
@@ -2769,7 +2770,7 @@ var List = {
 	},
 	_createTableRow: function ($table, target, hidden) {
 		var $link = target.createLink();
-		var $dropdown = html('select', {className: 'add-tag'})
+		var $dropdown = html('select', {class: 'add-tag'})
 		.whenChanged(function (e, t) {
 			var f = e.target.value;
 			if (f) {
@@ -2781,13 +2782,15 @@ var List = {
 		if (target.$tags.parentElement) {
 			target.$tags.remove();
 		}
-		var $row = html('div', {className: 'row', id: target.id}, [$link, target.$tags, $dropdown]);
+		var $row = html('div', {class: 'row', id: target.id}, [$link, target.$tags, $dropdown]);
 		if (hidden) $row.hide();
 		$table.appendChild($row);
 		return $row;
 	},
 	update: function () {
-		debug.log('Updating Lists');
+		if (!List._tablesBuilt) {
+			List.buildTables();
+		}
 		Utils.populateDropdown(List.$usersAddAllDropdown, Filters, List.$placeholderAddAllUsers);
 		Utils.populateDropdown(List.$usersRemoveAllDropdown, Filters, List.$placeholderRemoveAllUsers);
 		Utils.populateDropdown(List.$subsAddAllDropdown, Filters, List.$placeholderAddAllSubs);
@@ -2865,7 +2868,7 @@ var List = {
 					if (!$tag) continue;
 					var $remove = $tag.querySelector('.remove');
 					if (!$remove) {
-						$remove = html('span', {className: 'remove'}, 'x').whenClicked(function (e, t, f) {
+						$remove = html('span', {class: 'remove'}, 'x').whenClicked(function (e, t, f) {
 							Page.removeTargetFromFilter(t, f);
 						}, target, ID);
 						$tag.appendChild($remove);
@@ -2923,7 +2926,7 @@ var FilterList = {
 		//FilterList.$filterSort = $($root.querySelector('#sort-filters'));
 		//FilterList.$filterResults = $($root.querySelector('#search-results'));
 		FilterList.$filterTable = $($root.querySelector('#filters>tbody'));
-		FilterList.$source.setAttribute('href', SOURCE_URL);
+		FilterList.$source.setAttribute('href', meta.SOURCE_URL);
 		FilterList.addEventHandlers();
 		return FilterList.$elem;
 	},
@@ -3016,7 +3019,7 @@ var FilterList = {
 			});
 			$enable.setAttribute('title', i18n.get('popupToggleFilter', [filter.name]));
 
-			var $remove = html('button', {className: 'remove red'}, '✖');
+			var $remove = html('button', {class: 'remove red'}, '✖');
 			$remove.observe('click', function () {
 				FilterList.delete(filter.id, $row);
 			});
@@ -3278,7 +3281,7 @@ var App = {
 	init: function () {
 		Notification.requestPermission();
 		Page.init();
-		List.buildTables();
+		List.init();
 		i18n.init()
 		.then(App.load)
 		.then(App.inject);
@@ -3320,7 +3323,7 @@ var App = {
 		document.body.appendChild(App.$container);
 		
 		// lazily load the stylesheet for the app from cache or repo
-		return GM.getValue('bl_stylesheet', {})
+		return GM.getValue('bl_stylesheet', '{}')
 		.then(convertToJSON)
 		.then(function (styles) {
 			if (!styles || styles._version !== meta.VERSION) {
