@@ -18,7 +18,8 @@ var meta = {
 	VERSION: '2.1.0',
 	SOURCE_URL: 'https://github.com/DragonOfMath/fa-blacklist',
 	ROOT: 'https://raw.githubusercontent.com/DragonOfMath/fa-blacklist/master/',
-	ICON_HREF: 'webext/static/fabl-32.png',
+	ICON32_HREF: 'webext/static/fabl-32.png',
+	ICON128_HREF: 'webext/static/fabl-128.png',
 	LOCALES_HREF: 'webext/_locales/index.json',
 	STYLES_HREF: 'userscript/styles.css'
 };
@@ -886,15 +887,9 @@ function convertCheckboxesToSwitches(type, $root) {
 
 // tab controls
 function $TabControl(tabs) {
-	var $tabs = html('div', {
-		id: 'tabs'
-	});
-	var $contents = html('div', {
-		id: 'tabs-contents'
-	});
-	var $container = html('div', {
-		id: 'tabs-container'
-	}, [$tabs, $contents]);
+	var $tabs = html('div', {class: 'tabs'});
+	var $contents = html('div', {class: 'tabs-contents'});
+	var $container = html('div', {class: 'tabs-container'}, [$tabs, $contents]);
 
 	$container.$active = null;
 
@@ -973,10 +968,10 @@ function $Window(props) {
 		DragHandler.stop();
 		if (props.canHide) {
 			$window.hide();
-			$window.dispatchEvent({target: $window, name: 'hide'});
+			//$window.dispatchEvent({target: $window, name: 'hide'});
 		} else {
 			$window.remove();
-			$window.dispatchEvent({target: $window, name: 'close'});
+			//$window.dispatchEvent({target: $window, name: 'close'});
 		}
 	});
 	
@@ -1235,7 +1230,7 @@ var i18n = {
 		i18nData.split(';').forEach(function (attr) {
 			if (!attr) return;
 			var data = attr.split(',');
-			var message = this.get(data[0]);
+			var message = i18n.get(data[0]);
 			if (message) {
 				if (data[1]) {
 					$node.setAttribute(data[1], message);
@@ -2032,7 +2027,7 @@ function scrape() {
 			submission.addNode($submissionImg, 'thumbnail', true);
 			submission.addNode($submissionTags, 'link');
 
-			var $submissionOwner = body.select('div.classic-submission-title>' + USER_LINK, 'div.submission-title>span>a')[0];
+			var $submissionOwner = body.select('div.submission-id-container>' + USER_LINK, 'div.classic-submission-title>' + USER_LINK, 'div.submission-title>span>a')[0];
 			profileName = resolveUsername($submissionOwner);
 			profileUser = users[profileName];
 			profileUser.addSubmission(submission);
@@ -3280,11 +3275,11 @@ var App = {
 	},
 	init: function () {
 		Notification.requestPermission();
-		Page.init();
-		List.init();
 		i18n.init()
-		.then(App.load)
-		.then(App.inject);
+		.then(Page.init)
+		.then(List.init)
+		.then(App.inject)
+		.then(App.load);
 	},
 	update: function () {
 		OptionsForm.update();
@@ -3294,7 +3289,7 @@ var App = {
 	},
 	applyLocalization: function () {
 		i18n.locale = Options.locale in i18n._locales ? Options.locale : i18n.DEFAULT_LOCALE;
-		if (App.$elem) i18n.localizeDocument(App.$elem);
+		if (App.$mainWindow) i18n.localizeDocument(App.$mainWindow);
 	},
 	inject: function () {
 		// insert a button into the webpage nav container
@@ -3345,7 +3340,7 @@ var App = {
 	createMainWindow: function () {
 		App.$mainWindow = $Window({
 			title: i18n.get('extensionNameShort') + ' ' + meta.VERSION,
-			icon: (new URL(meta.ICON_URL, meta.ROOT)).href,
+			icon: (new URL(meta.ICON32_HREF, meta.ROOT)).href,
 			body: $TabControl({
 				'page': {
 					'tab': html('span', {'data-i18n': 'pageContentsTitle'}),
@@ -3372,11 +3367,9 @@ var App = {
 		return App.$mainWindow;
 	},
 	_reloadStylesheet: function () {
-		console.log('Fetching stylesheet');
 		return fetch((new URL(meta.STYLES_HREF, meta.ROOT)).href)
 		.then(function (x) {return x.text()})
 		.then(function (stylesheet) {
-			console.log('Reloaded stylesheet:', stylesheet);
 			App.$stylesheet.innerHTML = stylesheet;
 			return GM.setValue('bl_stylesheet', JSON.stringify({
 				_version: meta.VERSION,
