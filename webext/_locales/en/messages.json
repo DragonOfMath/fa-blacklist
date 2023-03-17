@@ -3,11 +3,15 @@
 		"message": "FurAffinity Blacklist",
 		"description": "Name of the extension."
 	},
+	"extensionNameShort": {
+		"message": "FA Blacklist",
+		"description": "Shortened name of the extension."
+	},
 	"extensionDescription": {
 		"message": "Interface modules for filtering content across FurAffinity",
 		"description": "Description of the extension."
 	},
-	
+
 	"blacklist": {
 		"message": "Blacklist",
 		"description": "Generic use word for 'blacklist'."
@@ -40,7 +44,7 @@
 		"message": "Random",
 		"description": "Generic use word for 'random'."
 	},
-	
+
 	"searchPlaceholder": {
 		"message": "🔎 Search...",
 		"description": "Placeholder text for any search bar."
@@ -57,7 +61,7 @@
 		"message": "No submissions found...",
 		"description": "Placeholder text when there are no submissions to display."
 	},
-	
+
 	"confirmDiscard": {
 		"message": "Changes you made to $filter$ are unsaved. Save now?",
 		"description": "Confirmation dialog text when a filter has changes but is not saved.",
@@ -86,7 +90,7 @@
 		"message": "Enter a username:",
 		"description": ""
 	},
-	
+
 	"popupTitle": {
 		"message": "FurAffinity Blacklist ",
 		"description": "Title text of the popup."
@@ -131,7 +135,7 @@
 			}
 		}
 	},
-	
+
 	"editorNewText": {
 		"message": "New",
 		"description": "Text on new filter button in the editor."
@@ -189,7 +193,7 @@
 		"description": "Tooltip text for the export filter button in the editor."
 	},
 	"editorSelectFilter": {
-		"message": "Select a filter from the dropdown:",
+		"message": "Select a filter...",
 		"description": "Text preceding the filter selection dropdown in the editor."
 	},
 	"editorTitle": {
@@ -215,6 +219,18 @@
 	"editorNamePlaceholder": {
 		"message": "untitled",
 		"description": "Placeholder text for the name field of the editor."
+	},
+	"editorDescriptionText": {
+		"message": "Description:",
+		"description": "Label text for the description field of the editor."
+	},
+	"editorDescriptionTitle": {
+		"message": "Filter description",
+		"description": "Tooltip text for the description field of the editor."
+	},
+	"editorDescriptionPlaceholder": {
+		"message": "",
+		"description": "Placeholder text for the description field of the editor."
 	},
 	"editorTypeText": {
 		"message": "Type:",
@@ -316,6 +332,22 @@
 		"message": "If a submission is matched, prefer filtering its creator instead:",
 		"description": "Label text for the option to filter by user when scanning submissions."
 	},
+	"editorIgnoreWhitelistsTitle": {
+		"message": "Ignore whitelisted items",
+		"description": "Tooltip text for the option to ignore items tagged by whitelists."
+	},
+	"editorIgnoreWhitelistsText": {
+		"message": "Ignore whitelisted items when blacklisting:",
+		"description": "Label text for the option to ignore items tagged by whitelists."
+	},
+	"editorTemporaryTitle": {
+		"message": "Temporary tagging",
+		"description": "Tooltip text for the option to make tagging temporary."
+	},
+	"editorTemporaryText": {
+		"message": "Items will be tagged for the current page only:",
+		"description": "Label text for the option to make tagging temporary."
+	},
 	"editorKeywordSupport": {
 		"message": "Keywords support regular expression syntax.",
 		"description": "Link text that tells the client that keywords can be any regular expressions."
@@ -376,10 +408,18 @@
 		"message": "This hides any other kind of link that goes to a submission",
 		"description": "Tooltip text for the label option."
 	},
-	
+	"editorUnsavedChanges": {
+		"message": "You have unsaved changes! Are you sure you want to close the window?",
+		"description": "Message text when the user is about to change pages with unsaved changes in the editor."
+	},
+
 	"optionsTitle": {
 		"message": "Extension Options",
 		"description": "Title for the extension options page."
+	},
+	"optionsLocale": {
+		"message": "Language:",
+		"description": "Label text for the language selector."
 	},
 	"optionsEnable": {
 		"message": "Enable this extension",
@@ -393,8 +433,12 @@
 		"message": "Automatically sort the contents of filters",
 		"description": "Text for the option to auto-sort filter contents."
 	},
+	"optionsBlur": {
+		"message": "Blur images instead of hiding them from the page",
+		"description": "Text for the option to blur submission thumbnails."
+	},
 	"optionsCleanup": {
-		"message": "Remove the submission previews on profile pages.",
+		"message": "Remove the submission previews on profile pages",
 		"description": "Text for the option to cleanup profile pages."
 	},
 	"optionsNotifications": {
@@ -417,7 +461,7 @@
 		"message": "Export Data",
 		"description": "Text for the button taht exports app data."
 	},
-	
+
 	"listTitle": {
 		"message": "Master List",
 		"description": "Title of the master list page."
@@ -430,7 +474,7 @@
 		"message": "Remove All...",
 		"description": "Label for remove-all dropdown used on master list and content pages."
 	},
-	
+
 	"pageContentsTitle": {
 		"message": "Page Contents",
 		"description": "Title of the page contents window."
@@ -443,9 +487,18 @@
 		"message": "Display page contents in list form",
 		"description": "Title text for the button that shows the page contents window."
 	},
-	
+
 	"mainScanResults": {
 		"message": "Scanning Results",
 		"description": "Notification title text for the results of scanning a webpage."
+	},
+	"scanNowText": {
+		"message": "Scan Now",
+		"description": "Button text for manually activating the page scanner."
+	},
+	
+	"genericErrorText": {
+		"message": "An error occurred:",
+		"description": "Text that is displayed when an app error is encountered."
 	}
 }

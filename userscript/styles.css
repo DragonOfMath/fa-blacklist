@@ -1,0 +1,371 @@
+/* https://www.w3schools.com/howto/howto_css_switch.asp */
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display:  inline-block;
+	width:    50px;
+	height:   28px;
+	margin:   0;
+}
+/* Hide default HTML checkbox */
+.switch input {
+	display: none;
+}
+/* The slider */
+.slider {
+	position: absolute;
+	cursor:   pointer;
+	top:      0;
+	left:     0;
+	right:    0;
+	bottom:   0;
+	background-color:    #ccc;
+	border: 2px inset #ccc;
+	transition:         .3s;
+	-webkit-transition: .3s;
+	-moz-transition:    .3s;
+}
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 20px;
+	width:  20px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	-webkit-transition: .3s;
+	transition: .3s;
+}
+input:checked + .slider {
+	background-color: #2196F3;
+}
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+	-webkit-transform: translateX(22px);
+	-ms-transform: translateX(22px);
+	transform: translateX(22px);
+}
+/* Rounded sliders */
+.slider.round {
+	border-radius: 28px;
+}
+.slider.round:before {
+	border-radius: 50%;
+}
+@charset "utf-8";
+#app {
+	width: 260px !important;
+	background-color: #2e3b41;
+	color: #cfcfcf;
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+}
+#app #power-button {
+	display: block;
+	margin: 10px;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	background-image: url('https://raw.githubusercontent.com/DragonOfMath/fa-blacklist-webext/master/static/fabl-128.png');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: transparent;
+	/* box-shadow: 0px 0px 20px black; */
+}
+#app #power-button.disabled {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+}
+#app #version {
+	margin-left: 6px;
+}
+#app button.remove {
+	border: none;
+	font-size: 12pt;
+	/*border-radius: 12px;*/
+	background-color: transparent;
+	color: inherit;
+	margin: 2px 0px 2px 4px;
+	padding: 4px;
+	/*width: 24px;*/
+	height: 24px;
+	cursor: pointer;
+}
+#app button.remove:hover {
+	border-width: 1px;
+	border-style: outset;
+}
+#app h1 {
+	margin: 5px;
+}
+#app h2 {
+	margin: 5px 0px 5px 2px;
+}
+#app h3 {
+	display: inline-block;
+	margin: 5px;
+}
+#app table {
+	border-spacing: 0px;
+}
+#app tr {
+	width: 100%;
+	padding: 10px 0px;
+}
+#app td {
+	padding: 5px;
+}
+#app textarea,
+#app button,
+#app select,
+#app input {
+	border: none;
+	font-family: inherit;
+	font-size: inherit;
+	background-color: inherit;
+	color: #cfcfcf;
+}
+#app textarea {
+	display: block;
+	box-sizing: border-box;
+	padding: 5px;
+	width: 100%;
+	height: 98px;
+	resize: vertical;
+}
+#app button,
+#app select,
+#app input {
+	display: inline-block;
+}
+#app button {
+	margin: 0px 1px 4px 0px;
+	cursor: pointer;
+}
+#app select {
+	cursor: pointer;
+}
+#app input[type=color] {
+	width: 100px;
+	padding: 0;
+	margin: 0px 10px 0px 0px;
+	vertical-align: top;
+	cursor: pointer;
+}
+#app input[type=textbox] {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 4px;
+}
+#app input[type=checkbox] {
+  height: 24px;
+}
+#app textarea:hover,
+#app textarea:focus,
+#app button:hover,
+#app input:focus {
+	background-color: #404a52;
+}
+#app select:focus {
+	background-color: #2e3b41;
+}
+#app code {
+	margin: 4px;
+}
+#app a {
+	text-decoration: none;
+	color: inherit;
+	font-weight: bold;
+}
+#app a:hover {
+	text-decoration: underline;
+}
+#app p {
+	margin: 5px;
+}
+#app .group {
+	padding: 0;
+	border-bottom: 2px inset #2e3b41;
+}
+#app .fixed-height {
+	max-height: 300px;
+	overflow-y: auto;
+}
+#app .row {
+	margin: 2px 0px 2px 4px;
+}
+#app #list .row {
+	vertical-align: top;
+}
+#app .row:hover {
+	background-color: #404a52;
+}
+#app .lightmode {
+	background-color: #d4dce8;
+	border-color: #d4dce8;
+	color: #2e2e2e;
+}
+#app .dummy {
+	font-size: 10pt;
+}
+#app .grey {
+	color: #9b9b9b;
+}
+#app .red:hover {
+	background-color: red !important;
+	border-color: red !important;
+	color: white !important;
+}
+#app .green:hover {
+	background-color: #2a2 !important;
+	border-color: #262 !important;
+	color: white !important;
+}
+#app .blue:hover {
+	background-color: blue !important;
+	border-color: blue !important;
+	color: white !important;
+}
+#app .hidden {
+	display: none !important;
+}
+#app .drag-handle {
+	background-color: #202224;
+	cursor: pointer;
+}
+#app #topnav {
+	position: fixed;
+	margin-top: -60px;
+	width: 378px;
+	background-color: #2e3b41;
+	z-index: 999;
+}
+#app #filter-info {
+	margin-top: 60px;
+}
+#app a {
+	margin: 2px 10px 2px 2px;
+}
+#app select {
+	/*background-image: none;*/
+}
+#app .add-tag {
+	width: 50px;
+}
+#app #users-add-all,
+#app #users-remove-all,
+#app #submissions-add-all,
+#app #submissions-remove-all {
+	width: auto;
+}
+/*
+#app #users, #app #submissions {
+	max-height: 300px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+*/
+#app .window {
+	position: fixed;
+	background-color: #2e3b41;
+	color: #cfcfcf;
+	z-index: 999;
+	width: 400px;
+	margin: auto;
+	opacity: 0.5;
+	box-shadow: 1px 1px 1px 1px black;
+	transition: opacity 200ms ease;
+}
+#app .window:hover {
+	opacity: 1;
+	box-shadow: 2px 2px 2px 2px black;
+}
+#app .window-icon {
+	width: 24px;
+	height: 24px;
+	margin: 4px;
+	padding: 0;
+}
+#app .window-title {
+	display: inline-block;
+	vertical-align: top;
+}
+#app .hide-window {
+	font-size: 12pt;
+	float: right;
+	margin: 0;
+}
+#app .window-head {}
+#app .window-body {}
+#app .tabs {
+	background-color: #202224;
+}
+#app .tab {
+	margin: 0;
+	padding: 6px 10px;
+	/*font-weight: bold;*/
+	cursor: pointer;
+	display: inline-block;
+}
+#app .tab:hover:not(.active) {
+	background-color: #262a32;
+}
+#app .tab.active {
+	background-color: #2e3b41;
+}
+#app .tabs-contents {
+	max-height: 600px;
+	overflow-y: auto;
+}
+.tag {
+	display: inline-block;
+	border-radius: 6px;
+	border-width: 2px;
+	border-style: outset;
+	margin: 1px;
+	padding: 2px;
+	cursor: pointer;
+}
+.tag.disabled {
+	background-color: grey !important;
+	border-color: grey !important;
+	color: white !important;
+}
+.tag .text {
+	font-size: 7.5pt;
+	margin: 0;
+	padding: 2px;
+	/* filter: invert(100%);
+	-o-filter: invert(100%);
+	-webkit-filter: invert(100%); */
+}
+.tag.auto:not(.disabled) .text::after {
+	content: '🔎';
+}
+.tag .remove {
+	border: none;
+	font-size: 9pt;
+	border-radius: 8px;
+	background-color: transparent;
+	color: #333;
+	margin: 2px 0px 2px 4px;
+	padding: 0;
+	width: 16px !important;
+	height: 16px !important;
+	cursor: pointer;
+}
+.tag .remove:hover {
+	background-color: red !important;
+	border-color: red !important;
+	color: white !important;
+}
+a.censored {
+	color: transparent;
+	text-shadow: 0 0 4px white;
+}
+img.censored {
+	filter: blur(20px);
+}

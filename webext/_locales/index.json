@@ -1,0 +1,4 @@
+{
+	'en-us': './en/messages.json',
+	'ru-ru': './ru/messages.json'
+}

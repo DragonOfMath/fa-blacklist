@@ -1,30 +1,27 @@
-# fa-blacklist-webext
-WebExtension for FurAffinity that adds advanced blacklisting/whitelisting capabilities.
-
-For instructions on installing and using the userscript version, go to [this section](#installation-userscript).
-
+# fa-blacklist
+Source code for the app that adds blacklisting/whitelisting capabilities for everyone on the website FurAffinity.
 
 # Installation (browser add-on)
-1. Download this repository as a .zip file to your desktop and unzip it.
+1. Download this repository's webext folder as a .zip file to your desktop and unzip it.
 2. Choose for your browser:
-  * For Firefox, go to `about:debugging#addons` and click "Load Temporary Add-on" (yes, this is temporary).
+  * For Firefox, go to `about:debugging#addons` and click "Load Temporary Add-on" (yes, this is temporary, you may need to use the userscript instead).
   * For Chrome, go to `chrome://extensions`, enable Developer mode, and click "Load Unpacked".
   * For Opera, click on the Opera button and go to Extensions, click the Developer Mode button, and click "Load unpacked extension".
   * For other browsers, consult a quick google search because I'm too lazy to list them here.
-3. Open the `manifest.json` file of the extension directory, or load by selecting the directory.
+3. Open the `manifest.json` file, or load by selecting the directory.
 4. Test it out! The extension remains until you close the browser or manually remove it from the same page as you installed it.
 
 (Ignore manifest warnings: browsers may have conflicting strictness about its properties, but the end result makes no difference on the usage)
 
 # Installation (userscript)
-1. Download the userscript from the 'raw' link (or click [here](https://raw.githubusercontent.com/DragonOfMath/fa-blacklist-webext/master/fa-blacklist.user.js)).
+1. Download the userscript from the 'raw' link (or click [here](https://raw.githubusercontent.com/DragonOfMath/fa-blacklist/master/userscript/fa-blacklist-latest.user.js)).
 2. Install (not in disabled state!).
-3. You're done! Go onto FA and you'll see 'FA Blacklist' text on the topbar next to search (or your name if you're using the beta theme). Click this to show the app's window interface.
+3. You're done! Go onto FA and you'll see 'FA Blacklist' text on the topbar next to search. Click this to show the app's window interface. Many of the pages you see from the extension are also present in the window's tabs.
 
 ### FA Blacklist 2: Electric Boogaloo
 After what felt like an eternity of waiting, the **FA Blacklist** is finally back and ***better than ever***.
 
-As you can see, it's no longer a userscript, but a *WebExtension* (note: made again into a userscript for compatibility reasons). There are many reasons this is necessary, one being that many features became obsolete in the meantime, and another that WebExtensions are standardized for nearly all popular browsers (1). That being said, there are some really *really* big changes I'd like to walk you through.
+This repo is split into both the WebExtension version and the Userscript version. There are advantages and disadvantages to both due to compatability across browsers, but generally, the WebExtension is better and more stable.  That being said, there are some really *really* big changes I'd like to walk you through.
 
 # Multiple Interfaces
 * The browser action pop-up
@@ -80,15 +77,25 @@ As of 2.1.0, the Master List is a special page that lists all the users and subm
 *This page is not available for the userscript.*
 
 # Notes
-1. It is 100% recommended **not** to use Internet Explorer or mobile browsers, as these tend to be far behind in the WebExtension standards. Edge and Opera are also slightly behind, but are still compatible.
+1. It is 100% recommended **not** to use Internet Explorer or mobile browsers, as these tend to be far behind in the WebExtension standards. Other non-standard browsers such as Brave and Firefly may not have full support of features used in this app.
 
-2. If you are using the userscript version, please disable it when using the extension, and vice versa! Having both at the same time can cause interference with each other. 
+2. Running both the userscript and extension is a bad idea for the stability of both. Only run one at a time.
 
 # To-Do
 I keep a to-do list of objectives that aren't required for the extension to work, but do add functionality that makes life easier. You can view the TODO.txt file to see what I have planned.
 
 # Contributing
-I am in need of volunteers to help translate messages. See `_locales/en/messages.json` for the English locales that need translating. If translating isn't your thing, you're also free to help beta-test this extension for desktop and mobile.
+I am in need of volunteers to help translate texts for localization. See `_locales/en/messages.json` for the English locales that need translating. If that isn't your thing, you're also free to help beta-test this extension for desktop and mobile.
+
+These are all languages I would like to be translated (the list is not exhaustive, any locale is welcome):
+ * Spanish (es)
+ * French (fr)
+ * German (de)
+ * Portuguese (pt/pt-br)
+ * Chinese (zh/zh-cn)
+ * Japanese (ja)
+ 
+Additionally, the full, un-minified source code for the userscript is available in the corresponding folder. Fell free to make whatever changes you want to it.
 
 # Feedback
-Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist-webext/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.
+Please send me your suggestions and bugs to the repo's [issue inbox](https://github.com/DragonOfMath/fa-blacklist/issues/new). If you have questions about the usage of certain interfaces, I'd be happy to help. Comments and criticisms about my work are welcome, too.

@@ -1,0 +1,81 @@
+{
+	"manifest_version": 2,
+	"name": "__MSG_extensionName__",
+	"description": "__MSG_extensionDescription__",
+	"version": "2.2.0",
+	"author": "DragonOfMath",
+	"homepage_url": "https://github.com/DragonOfMath/fa-blacklist",
+	"default_locale": "en",
+	
+	"icons": {
+		"32": "static/fabl-128.png",
+		"64": "static/fabl-128.png",
+		"128": "static/fabl-128.png"
+	},
+	
+	"background": {
+		"scripts": [
+			"lib/core/prototype.js",
+			"lib/browser/browser-polyfill.js",
+			"lib/browser/i18n.js",
+			"lib/browser/context-menu.js",
+			"lib/browser/messenger.js",
+			"lib/browser/storage.js",
+			"lib/browser/notify.js",
+			"lib/fa/filter.js",
+			"lib/main.js"
+		],
+		"persistent": true
+	},
+	
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.furaffinity.net/*"
+			],
+			"run_at": "document_end",
+			"js": [
+				"lib/core/prototype.min.js",
+				"lib/core/prototype-extension.js",
+				"lib/browser/browser-polyfill.js",
+				"lib/browser/i18n.js",
+				"lib/browser/messenger.js",
+				"lib/page/drag-handler.js",
+				"lib/fa/filter.js",
+				"lib/fa/target-base.js",
+				"lib/fa/target-extension.js",
+				"lib/fa/scraper.js",
+				"lib/list.js",
+				"lib/page.js"
+			],
+			"css": [
+				"lib/styles/app.css",
+				"lib/styles/tag.css",
+				"lib/styles/list.css",
+				"lib/styles/page.css"
+			]
+		}
+	],
+	 
+	"browser_action": {
+		"default_icon":  {
+			"32": "static/fabl-32.png"
+		},
+		"default_title": "FA Blacklist",
+		"default_popup": "popup.html"
+	},
+	
+	"options_ui": {
+		"page": "options.html"
+	},
+	
+	"permissions": [
+		"<all_urls>",
+		"contextMenus",
+		"notifications",
+		"storage", "unlimitedStorage",
+		"tabs"
+	],
+	
+	"content_security_policy": "script-src 'self'; object-src 'self'; img-src 'self'"
+}

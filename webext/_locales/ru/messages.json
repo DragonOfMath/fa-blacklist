@@ -3,6 +3,10 @@
 		"message": "FurAffinity Blacklist",
 		"description": "Name of the extension."
 	},
+	"extensionNameShort": {
+		"message": "FA Blacklist",
+		"description": "Shortened name of the extension."
+	},
 	"extensionDescription": {
 		"message": "Модули интерфейса для фильтрации контента на FurAffinity",
 		"description": "Description of the extension."
@@ -447,5 +451,14 @@
 	"mainScanResults": {
 		"message": "Результаты сканирования",
 		"description": "Notification title text for the results of scanning a webpage."
+	},
+	"scanNowText": {
+		"message": "",
+		"description": "Button text for manually activating the page scanner."
+	},
+	
+	"genericErrorText": {
+		"message": "",
+		"description": "Text that is displayed when an app error is encountered."
 	}
 }
