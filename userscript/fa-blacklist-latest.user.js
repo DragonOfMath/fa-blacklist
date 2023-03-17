@@ -1156,7 +1156,7 @@ var i18n = {
 		.then(convertToJSON)
 		.then(function (locales) {
 			if (!locales || locales._version !== meta.VERSION) {
-				return i18n._updateLocales(locales || {});
+				return i18n._updateLocales(locales);
 			} else {
 				i18n._locales = locales;
 				return true;
@@ -1164,6 +1164,7 @@ var i18n = {
 		});
 	},
 	_updateLocales: function (locales) {
+		locales = locales || {};
 		console.log('Fetching new locales dictionary');
 		var localesURL = (new URL(meta.LOCALES_HREF, meta.ROOT)).href;
 		console.log(localesURL);
@@ -2529,6 +2530,7 @@ var OptionsForm = {
 		OptionsForm.$reloadCaches.addEventListener('click', function (e) {
 			i18n._updateLocales();
 			App._reloadStylesheet();
+			App.applyLocalization();
 		}, false);
 	},
 	serialize: function () {
@@ -3367,7 +3369,9 @@ var App = {
 		return App.$mainWindow;
 	},
 	_reloadStylesheet: function () {
-		return fetch((new URL(meta.STYLES_HREF, meta.ROOT)).href)
+		var stylesheetURL = (new URL(meta.STYLES_HREF, meta.ROOT)).href;
+		console.log('Fetching stylesheet', stylesheetURL);
+		return fetch(stylesheetURL)
 		.then(function (x) {return x.text()})
 		.then(function (stylesheet) {
 			App.$stylesheet.innerHTML = stylesheet;
