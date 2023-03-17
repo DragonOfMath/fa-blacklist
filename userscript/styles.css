@@ -272,7 +272,7 @@ input:checked + .slider:before {
 	position: fixed;
 	background-color: #2e3b41;
 	color: #cfcfcf;
-	z-index: 999;
+	z-index: 1001;
 	width: 400px;
 	margin: auto;
 	opacity: 0.5;

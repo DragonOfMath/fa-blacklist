@@ -689,7 +689,7 @@ var debug = {
 		};
 		var text = this.format;
 		for (var key in params) {
-			text = text.replace('$' + key + '$', params[key]);
+			text = text.replace('$' + key + '$', params[key] || '?');
 		}
 		console.log(text);
 		return this;
@@ -1037,8 +1037,8 @@ function getWatchlist(e) {
 		.then(convertToJSON) */
 		return fetch('https://www.furaffinity.net/watchlist/by/'+username+(p>1?'/'+p+'/':''))
 		.then(function (x) {return x.text()})
-		.then(function (x) {return x.html()})
-		.then(function ($dom) {return $A($dom.querySelectorAll('#userpage-budlist>tbody>tr>td>a,div.watch-row>a')).pluck('textContent')})
+		.then(parseHTML)
+		.then(function ($dom) {return $A($dom.querySelectorAll('div.watch-list-items>a,#userpage-budlist>tbody>tr>td>a,div.watch-row>a')).pluck('textContent')})
 		.then(function (users) {
 			$btn.textContent = 'Fetching (page ' + p + ')...';
 			debug.log('Got page ' + p + ' of ' + username + '\'s watchlist, ' + users.length + ' items');
@@ -1646,6 +1646,7 @@ Target.addMethods({
 	},
 	addNode: function (node, type, useSelf) {
 		if (this.hasNode(node)) return;
+		if (!node) throw 'cannot add empty node of type ' + type + ' to ' + this.id;
 		if (Object.isElement(node)) {
 			node = new TypeNode(node, type, this, useSelf);
 		}
@@ -1847,7 +1848,7 @@ function scrape() {
 		return id in submissions ? submissions[id] : (submissions[id] = new Submission(id));
 	}
 
-	function processLinks($link) {
+	function processLink($link) {
 		if (/[?#@]/.test($link.href) || ($link.innerHTML == 'News and Updates')) return;
 		try {
 			var name = resolveUsername($link);
@@ -1873,7 +1874,7 @@ function scrape() {
 			console.error('Invalid link:', $link, e);
 		}
 	}
-	function processThings($thing) {
+	function processThing($thing) {
 		try {
 			var name = Utils.sanitizeUsername($thing.textContent);
 			users[name].addNode($thing, 'username');
@@ -1881,7 +1882,7 @@ function scrape() {
 			console.error('Invalid username container:', $thing, e);
 		}
 	}
-	function processAvatars($avatar) {
+	function processAvatar($avatar) {
 		try {
 			var name = resolveUsername($avatar.parentElement);
 			users[name].addNode($avatar, 'avatar');
@@ -1889,7 +1890,7 @@ function scrape() {
 			console.error('Invalid avatar:', $avatar, e);
 		}
 	}
-	function processComments($comment) {
+	function processComment($comment) {
 		try {
 			var name = resolveUsername($comment.querySelector('a'));
 			// avoid using a large swath of the dom as the hover parent
@@ -1898,7 +1899,7 @@ function scrape() {
 			console.error('Invalid comment:', $comment, e);
 		}
 	}
-	function processGalleryFigures($figure) {
+	function processGalleryFigure($figure) {
 		try {
 			var $thumbnail = $figure.querySelector('img'); // figure>b>u[>s]>a>img
 			var $caption = $figure.querySelector('figcaption'); // figure>figcaption
@@ -1916,7 +1917,7 @@ function scrape() {
 			console.error('Invalid figure:', $figure, e);
 		}
 	}
-	function processProfileFigures($figure) {
+	function processProfileFigure($figure) {
 		var $a = $figure.querySelector(SUBMISSION_LINK);
 		var id = resolveSubmission($a);
 		var submission = submissions[id];
@@ -1931,7 +1932,7 @@ function scrape() {
 			//console.log($figure,'is a user submission');
 		}
 	}
-	function processSubmissionFigures($figure) {
+	function processSubmissionFigure($figure) {
 		var $thumbnail = $figure.querySelector('img');
 		var $a = $figure.querySelector(SUBMISSION_LINK);
 		var id = resolveSubmission($a);
@@ -1943,16 +1944,16 @@ function scrape() {
 	}
 
 	// build user and submission tables using the links
-	body.select('a').forEach(processLinks);
+	body.select('a').forEach(processLink);
 
 	// parse things that aren't links but contain one's username
-	body.select('li>div.info>span', 'b.replyto-name').forEach(processThings);
+	body.select('li>div.info>span', 'b.replyto-name').forEach(processThing);
 
 	// parse avatar images (all usernames should exist in the table); avatars are always wrapped in links
-	body.select('img.avatar', 'img.comment_useravatar', 'a.iconusername>img').forEach(processAvatars);
+	body.select('img.avatar', 'img.comment_useravatar', 'a.iconusername>img', 'div.submission-id-avatar>a>img').forEach(processAvatar);
 
 	// parse comments and shouts (all usernames should exist in the table)
-	body.select('comment-container', 'table[id*="shout"]', 'table.container-comment').forEach(processComments);
+	body.select('comment-container', 'table[id*="shout"]', 'table.container-comment').forEach(processComment);
 
 	// parse content figures
 	var $contentItems = body.select('figure', 'b[id*="sid_"]', 'div.preview-gallery-container');
@@ -1967,7 +1968,7 @@ function scrape() {
 	case 'search':
 	case 'msg':
 		// submissions with titles/by creators
-		$contentItems.forEach(processGalleryFigures);
+		$contentItems.forEach(processGalleryFigure);
 		break;
 	case 'user':
 		profileName = URL[3];
@@ -1978,7 +1979,7 @@ function scrape() {
 		var $firstFaveSubmission = body.select('center.userpage-first-favorite>b')[0];
 
 		// profile submissions and favorites
-		$contentItems.forEach(processProfileFigures);
+		$contentItems.forEach(processProfileFigure);
 		if ($featuredSubmission) {
 			var $a = $featuredSubmission.querySelector('a') || $featuredSubmission.parentElement;
 			var id = resolveSubmission($a);
@@ -2022,19 +2023,22 @@ function scrape() {
 	case 'full':
 		try {
 			var $submissionImg = $('submissionImg');
-			var $submissionTags = $('keywords');
+			var $submissionTags = body.select('section.tags-row', '#keywords')[0];
 			var id = URL[3];
 			var submission = getSubmission(id);
 			submission.addNode($submissionImg, 'thumbnail', true);
 			submission.addNode($submissionTags, 'link');
-
-			var $submissionOwner = body.select('div.submission-id-container>' + USER_LINK, 'div.classic-submission-title>' + USER_LINK, 'div.submission-title>span>a')[0];
+			
+			var $submissionIdContainer = body.select('div.submission-id-container', 'div.classic-submission-title', 'div.submission-title')[0];
+			var $submissionOwner = $submissionIdContainer.select(USER_LINK)[0];
+			
 			profileName = resolveUsername($submissionOwner);
 			profileUser = users[profileName];
+
 			profileUser.addSubmission(submission);
 
 			// submission previews
-			$contentItems.forEach(processSubmissionFigures);
+			$contentItems.forEach(processSubmissionFigure);
 		} catch (e) {
 			console.error(e);
 		}
