@@ -23,6 +23,9 @@ var meta = {
 	LOCALES_HREF: 'webext/_locales/index.json',
 	STYLES_HREF: 'userscript/styles.css'
 };
+meta.ICON_URL = (new URL(meta.ICON32_HREF, meta.ROOT)).href;
+meta.LOCALES_URL = (new URL(meta.LOCALES_HREF, meta.ROOT)).href;
+meta.STYLES_URL = (new URL(meta.STYLES_HREF, meta.ROOT)).href;
 
 // Storage (temp placeholder for testing purposes)
 if (typeof GM === 'undefined') {
@@ -1166,15 +1169,13 @@ var i18n = {
 	_updateLocales: function (locales) {
 		locales = locales || {};
 		console.log('Fetching new locales dictionary');
-		var localesURL = (new URL(meta.LOCALES_HREF, meta.ROOT)).href;
-		console.log(localesURL);
-		return fetch(localesURL)
+		return fetch(meta.LOCALES_URL)
 		.then(convertToJSON)
 		.then(function (index) {
 			console.log('Locales index found:', index);
 			// fetch each locales file
 			return Promise.all(Object.keys(index).map(function (key) {
-				return fetch(new URL(index[key], localesURL))
+				return fetch(new URL(index[key], meta.LOCALES_URL))
 				.then(convertToJSON)
 				.then(function (locale) {
 					console.log('Locale found:', key);
@@ -3346,7 +3347,7 @@ var App = {
 	createMainWindow: function () {
 		App.$mainWindow = $Window({
 			title: i18n.get('extensionNameShort') + ' ' + meta.VERSION,
-			icon: (new URL(meta.ICON32_HREF, meta.ROOT)).href,
+			icon: meta.ICON_URL,
 			body: $TabControl({
 				'page': {
 					'tab': html('span', {'data-i18n': 'pageContentsTitle'}),
@@ -3373,11 +3374,10 @@ var App = {
 		return App.$mainWindow;
 	},
 	_reloadStylesheet: function () {
-		var stylesheetURL = (new URL(meta.STYLES_HREF, meta.ROOT)).href;
-		console.log('Fetching stylesheet', stylesheetURL);
-		return fetch(stylesheetURL)
+		return fetch(meta.STYLES_URL)
 		.then(function (x) {return x.text()})
 		.then(function (stylesheet) {
+			console.log('Fetched new stylesheet');
 			App.$stylesheet.innerHTML = stylesheet;
 			return GM.setValue('bl_stylesheet', JSON.stringify({
 				_version: meta.VERSION,
@@ -3437,14 +3437,14 @@ var App = {
 
 				var resultsText = '';
 				if (users.length) {
-					resultsText += i18n.get('users') + ' (' + users.length + '):\n';
+					resultsText += users.length + ' ' + i18n.get('users') + ':\n';
 					resultsText += users.map(function (user) {
 						return user + ' (' + getFiltersByTags(Users[user]).join(', ') + ')';
 					}).join('; ');
 					resultsText += '\n\n';
 				}
 				if (submissions.length) {
-					resultsText += i18n.get('submissions') + ' (' + submissions.length + '):\n';
+					resultsText += submissions.length + ' ' + i18n.get('submissions') + ':\n';
 					resultsText += submissions.map(function (sub) {
 						return '#' + sub + ' (' + getFiltersByTags(Submissions[sub]).join(', ') + ')';
 					}).join('; ');
@@ -3453,7 +3453,7 @@ var App = {
 				Notify(
 					i18n.get('extensionNameShort') + ' - ' + i18n.get('mainScanResults'),
 					resultsText,
-					ICON_URL
+					meta.ICON_URL
 				);
 			}
 		}
